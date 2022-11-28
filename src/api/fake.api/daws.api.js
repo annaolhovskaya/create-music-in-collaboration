@@ -1,0 +1,45 @@
+export const dawsObject = {
+    ableton: {
+        _id: "1f8f56c9-37a3-4377-b083-a897205c03be",
+        name: "Ableton Live"
+    },
+    studioOne: {
+        _id: "5413a951-ba4b-4508-88dd-04dc290ed0e9",
+        name: "Studio One"
+    },
+    bitwig: {
+        _id: "7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969",
+        name: "Bitwig Studio"
+    },
+    logic: {
+        _id: "c0e68e2f-f5fd-4aa8-aec9-39925fb03f05",
+        name: "Logic"
+    },
+    cubase: {
+        _id: "28f88340-e447-4e64-af67-8528e2dad926",
+        name: "Cubase"
+    },
+    fl: {
+        _id: "abf001ce-0732-4604-9518-0139de37a1f8",
+        name: "FL Studio"
+    },
+    reaper: {
+        _id: "496ca540-62fb-4c23-a835-542e5d1b7b5c",
+        name: "Reaper"
+    },
+    proTools: {
+        _id: "dee409a3-17f2-4a11-a624-df59b606f44f",
+        name: "Pro Tools"
+    }
+};
+
+const fetchAll = () =>
+    new Promise((resolve) => {
+        window.setTimeout(function () {
+            resolve(dawsObject);
+        }, 2000);
+    });
+
+export default {
+    fetchAll
+};

@@ -4,7 +4,7 @@ import { paginate } from "../utils/paginate";
 import BtnBlueSmall from "./btnBlueSmall";
 import GroupList from "./groupList";
 import Pagination from "./pagination";
-import User from "./user";
+import User from "./user/user";
 
 const Users = () => {
     const pageSize = 7;

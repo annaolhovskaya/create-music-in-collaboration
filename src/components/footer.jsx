@@ -8,7 +8,7 @@ const Footer = () => {
     // }, []);
     // if (tracks) {
     return (
-        <div className="container">
+        <div className="container_custom">
             <div className="footer__inner">
                 <MediaPlayer />
             </div>

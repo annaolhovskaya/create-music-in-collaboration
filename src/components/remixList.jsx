@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from "../api";
 import { getRandomNumberArray } from "../utils/getRandomNumberArray";
 import Track from "./track";
-import ContentWrapper from "./contentWrapper";
+import ContentWrapper from "./contentWrapper/contentWrapper";
 import TrackCover from "./trackCover";
 import BtnBlue from "./btnBlue";
 

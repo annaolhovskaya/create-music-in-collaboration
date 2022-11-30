@@ -1,15 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-// import PropTypes from "prop-types";
-// import PlayPauseBtnWrapper from "./mediaPlayer/playPauseBtnWrapper";
 import PrevBtn from "./mediaPlayer/prevBtn";
 import NextBtn from "./mediaPlayer/nextBtn";
 import Bookmark from "./mediaPlayer/bookmark";
-import audio from "../assets/audio/David Rossi-The Heights Garden State.mp3";
-// import PauseBtn from "./mediaPlayer/pauseBtn";
 import PlayBtn from "./mediaPlayer/playBtn";
 import BtnWrapper from "./mediaPlayer/btnWrapper";
 import PauseBtn from "./mediaPlayer/pauseBtn";
-console.log(audio);
+
 const tracks = [
     {
         author: "Amonita",

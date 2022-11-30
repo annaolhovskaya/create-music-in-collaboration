@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import Collaborations from "./components/collaborations";
-import Wrapper from "./components/wrapper";
+import Wrapper from "./components/wrapper/wrapper";
 import Footer from "./components/footer";
 import Main from "./components/main";
 

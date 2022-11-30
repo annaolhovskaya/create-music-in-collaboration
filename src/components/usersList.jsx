@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getRandomNumberArray } from "../utils/getRandomNumberArray";
-import User from "./user";
+import User from "./user/user";
 import api from "../api";
-import ContentWrapper from "./contentWrapper";
+import ContentWrapper from "./contentWrapper/contentWrapper";
 import BtnBlue from "./btnBlue";
 // import Pagination from "./pagination";
 // import { paginate } from "../utils/paginate";

@@ -1,0 +1,19 @@
+.users__content {
+    margin: 0 15px;
+    width: 33.33333%;
+    overflow: auto;
+
+    border-radius: 10px;
+    background-color: rgba(238, 140, 255, 0.5);
+}
+
+.users__content:nth-child(1) {
+    margin-right: 7.5px;
+}
+.users__content:nth-child(2) {
+    margin: 0 7.5px;
+    background-color: rgba(24, 255, 255, 0.3);
+}
+.users__content:nth-child(3) {
+    margin-left: 7.5px;
+}

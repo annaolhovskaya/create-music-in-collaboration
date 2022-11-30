@@ -1,0 +1,23 @@
+.user__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin: 15px 15px;
+}
+
+.user__info {
+    margin-left: 10px;
+}
+
+.link__nostyle {
+    text-decoration: none;
+    color: #05172d;
+}
+
+.user__item__name {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}

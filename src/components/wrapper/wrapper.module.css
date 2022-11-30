@@ -1,0 +1,20 @@
+.main__content {
+    display: flex;
+    padding: 10px 0;
+    overflow: hidden;
+    height: calc(100vh - (91px + 101px));
+}
+
+.container_custom {
+    width: 100%;
+    max-width: 1170px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.main__content_wraper {
+    display: flex;
+    /* flex-wrap: wrap; */
+    margin: 0 -15px;
+    height: 100%;
+}

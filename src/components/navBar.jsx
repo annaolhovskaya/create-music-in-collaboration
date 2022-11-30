@@ -5,7 +5,7 @@ import logo from "../assets/logo.png";
 const NavBar = () => {
     return (
         <div className="header">
-            <div className="container">
+            <div className="container_custom">
                 <div className="header__inner">
                     <div className="header__logo">
                         <Link to="/">

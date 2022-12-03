@@ -5,10 +5,10 @@ import Wrapper from "./components/wrapper/wrapper";
 import Footer from "./components/footer";
 import Main from "./components/main";
 
-import NavBar from "./components/navBar";
+import NavBar from "./components/ui/navBar";
 import Remix from "./components/remix";
-import Users from "./components/users";
-import UserPage from "./components/userPage";
+import Users from "./layouts/users";
+import UserPage from "./components/page/userPage";
 import Login from "./layouts/login";
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
             <NavBar />
             <Wrapper>
                 <Switch>
-                    <Route path="/users" component={Users} />
+                    <Route path="/users/:userId?" component={Users} />
                     <Route path="/user" component={UserPage} />
                     <Route path="/collaborations" component={Collaborations} />
                     <Route path="/remix" component={Remix} />

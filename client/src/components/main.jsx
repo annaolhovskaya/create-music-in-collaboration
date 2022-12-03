@@ -1,12 +1,12 @@
 import React from "react";
 import CollabList from "./collabList";
 import RemixList from "./remixList";
-import UsersList from "./usersList";
+import RandomUsersList from "./randomUsersList";
 
 const Main = () => {
     return (
         <>
-            <UsersList />
+            <RandomUsersList />
             <CollabList />
             <RemixList />
         </>

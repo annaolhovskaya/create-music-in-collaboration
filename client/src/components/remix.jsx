@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { paginate } from "../utils/paginate";
 import api from "../api";
 import Track from "./track";
-import Pagination from "./pagination";
+import Pagination from "./common/pagination";
 import TrackCover from "./trackCover";
 
 const Remix = () => {

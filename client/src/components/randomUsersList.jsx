@@ -8,7 +8,7 @@ import BtnBlue from "./btnBlue";
 // import { paginate } from "../utils/paginate";
 // import PropTypes from "prop-types";
 
-const UsersList = () => {
+const RandomUsersList = () => {
     const [users, setUsers] = useState();
 
     useEffect(() => {
@@ -46,8 +46,8 @@ const UsersList = () => {
     return "Loading...";
 };
 
-// UsersList.propTypes = {
+// RandomUsersList.propTypes = {
 //     users: PropTypes.array.isRequired
 // };
 
-export default UsersList;
+export default RandomUsersList;

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import api from "../api";
-import { paginate } from "../utils/paginate";
-import BtnBlueSmall from "./btnBlueSmall";
-import GroupList from "./groupList";
-import Pagination from "./pagination";
-import User from "./user/user";
+import api from "../../../api";
+import { paginate } from "../../../utils/paginate";
+import BtnBlueSmall from "../../btnBlueSmall";
+import GroupList from "../../common/groupList";
+import Pagination from "../../common/pagination";
+import User from "../../user/user";
 
-const Users = () => {
+const UsersListPage = () => {
     const pageSize = 7;
     const [users, setUsers] = useState();
     const [currentPage, setCurrentPage] = useState(1);
@@ -113,4 +113,4 @@ const Users = () => {
     }
 };
 
-export default Users;
+export default UsersListPage;

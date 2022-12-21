@@ -1,20 +1,20 @@
 @font-face {
     font-family: "Roboto";
-    src: url("./assets/fonts/Roboto-Regular.woff"),
-        url("./assets/fonts/Roboto-Regular.ttf");
+    src: url("./app/assets/fonts/Roboto-Regular.woff"),
+        url("./app/assets/fonts/Roboto-Regular.ttf");
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("./assets/fonts/Roboto-Light.woff"),
-        url("./assets/fonts/Roboto-Light.ttf");
+    src: url("./app/assets/fonts/Roboto-Light.woff"),
+        url("./app/assets/fonts/Roboto-Light.ttf");
     font-weight: 300;
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("./assets/fonts/Roboto-Bold.woff"),
-        url("./assets/fonts/Roboto-Bold.ttf");
+    src: url("./app/assets/fonts/Roboto-Bold.woff"),
+        url("./app/assets/fonts/Roboto-Bold.ttf");
     font-weight: 700;
 }
 
@@ -286,6 +286,7 @@ h6 {
     margin: 0 auto;
     justify-content: space-around;
 }
+
 .all__content {
     align-items: center;
     margin: 0 auto;
@@ -693,9 +694,52 @@ h6 {
 }
 
 .invalid-feedback {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     color: #8d0000;
+}
+
+.input-group {
+    background-color: transparent;
+}
+
+.form-control {
+    background-color: transparent;
+}
+
+.form-control.is-invalid {
+    border-color: #8d0000;
+}
+
+.form-control:focus {
+    background-color: rgba(238, 140, 255, 0.4);
+}
+
+.form-select {
+    background-color: transparent;
+}
+
+.form-select option {
+    background: #ab79f5;
+}
+
+.anchor__auth {
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #8d0000;
+}
+
+.col-md-6 {
+    position: relative;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.row {
+    background-color: transparent;
 }
 
 @keyframes gradient {

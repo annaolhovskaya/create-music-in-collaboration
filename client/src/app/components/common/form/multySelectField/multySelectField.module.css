@@ -1,0 +1,11 @@
+.label__input {
+    font-weight: 400;
+    font-size: 15px;
+    color: #18ffff;
+}
+
+.error {
+    font-weight: 400;
+    font-size: 13px;
+    color: #8d0000;
+}

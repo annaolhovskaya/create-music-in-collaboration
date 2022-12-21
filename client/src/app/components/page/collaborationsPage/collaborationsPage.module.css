@@ -1,0 +1,21 @@
+.all__content {
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 65%;
+    border-radius: 10px;
+    background-color: rgba(238, 140, 255, 0.5);
+}
+
+.all_tracks {
+    margin: 15px auto;
+}
+
+.track__list__block {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* justify-content: space-between; */
+
+    margin: 10px 15px;
+}

@@ -1,0 +1,23 @@
+.label {
+    vertical-align: top;
+    margin-bottom: 6px;
+    margin-right: 6px;
+    width: 120px;
+    height: 15px;
+    border-radius: 7px;
+
+    font-family: "Roboto";
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.15rem;
+    text-align: center;
+    /* justify-content: center; */
+}
+
+.label__blue {
+    background-color: #18ffff;
+}
+
+.label__pink {
+    background-color: #ee8cff;
+}

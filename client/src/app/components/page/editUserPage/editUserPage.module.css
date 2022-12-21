@@ -1,0 +1,16 @@
+.icon__settings {
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 12px;
+
+    background-color: rgba(249, 135, 237, 0.78);
+
+    transition: color 0.1s linear;
+}
+
+.icon__settings:hover {
+    background-color: #6cb3f5;
+}

@@ -1,0 +1,36 @@
+.track__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track__list__info {
+    font-size: 15px;
+}
+
+.track__title {
+    margin-bottom: 3px;
+}
+
+.track__author {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.track__list__duration__bookmark {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -24px;
+}
+
+.track__list__duration__bookmark {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -24px;
+}

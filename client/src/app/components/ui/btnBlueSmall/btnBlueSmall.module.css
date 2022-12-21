@@ -1,0 +1,32 @@
+.buttons__column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px;
+}
+
+.btn__small {
+    display: inline-block;
+    vertical-align: top;
+    padding: 3px 15px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: #e200e6;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn__blue {
+    background: #18ffff;
+}
+
+.btn__blue:hover {
+    background: #15ecec;
+}

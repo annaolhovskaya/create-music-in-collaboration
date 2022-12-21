@@ -1,0 +1,23 @@
+.raw__info {
+    display: flex;
+    margin: 0 auto 12px auto;
+    justify-content: center;
+}
+
+.column__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.bold__text {
+    display: inline;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.bold__text__raw {
+    display: inline;
+    margin-left: 15px;
+    font-weight: 700;
+}

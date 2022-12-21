@@ -1,0 +1,41 @@
+.user__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin: 15px 15px;
+}
+
+.user__info {
+    margin-left: 10px;
+}
+
+.user__title {
+    display: flex;
+    align-items: center;
+}
+
+.link__nostyle {
+    text-decoration: none;
+    color: #05172d;
+}
+
+.user__item__name {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.container__avatar {
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+}
+
+.icon {
+    margin-left: 8px;
+    margin-bottom: 5px;
+    color: #00dbde;
+    align-items: flex-end;
+}

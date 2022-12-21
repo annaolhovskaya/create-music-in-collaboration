@@ -1,0 +1,43 @@
+.user__item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin: 15px 15px;
+}
+
+.user__info {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    width: 79%;
+    justify-content: space-between;
+}
+
+.comment__author {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.link__nostyle {
+    text-decoration: none;
+    color: #05172d;
+}
+
+.user__item__name {
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.container__avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.btn__delete {
+    display: block;
+}

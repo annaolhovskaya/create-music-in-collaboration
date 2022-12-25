@@ -3,6 +3,8 @@ import TextField from "../common/form/textField/textField";
 // import { validator } from "../../utils/validator";
 import CheckBoxField from "../common/form/checkBoxField";
 import * as yup from "yup";
+import { useAuth } from "../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const LoginForm = () => {
     const [data, setData] = useState({
@@ -11,29 +13,17 @@ const LoginForm = () => {
         stayOn: false
     });
     const [errors, setErrors] = useState({});
+    const [enterError, setEnterError] = useState(null);
+    const { logIn } = useAuth();
+    const history = useHistory();
 
     useEffect(() => {
         validate();
     }, [data]);
 
     const validateSchema = yup.object().shape({
-        password: yup
-            .string()
-            .required("Пароль обязателен для заполнения")
-            .matches(/(?=.*[A-Z])/, "Пароль должен содержать заглавную букву")
-            .matches(/(?=.*[0-9])/, "Пароль должен содержать цифру")
-            .matches(
-                /(?=.*[!@#$%^&*])/,
-                "Пароль должен содержать специальный символ !@#$%^&*"
-            )
-            .matches(
-                /(?=.{8,})/,
-                "Пароль должен состоять минимум из 8 символов"
-            ),
-        email: yup
-            .string()
-            .required("email обязателен для заполнения")
-            .email("email введен не корректо")
+        password: yup.string().required("Пароль обязателен для заполнения"),
+        email: yup.string().required("email обязателен для заполнения")
     });
 
     // const validatorConfig = {
@@ -91,13 +81,20 @@ const LoginForm = () => {
             ...prevState,
             [target.name]: target.value
         }));
+        setEnterError(null);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
         console.log(data);
+        try {
+            await logIn(data);
+            history.push("/");
+        } catch (error) {
+            setEnterError(error.message);
+        }
     };
 
     return (
@@ -125,6 +122,18 @@ const LoginForm = () => {
             >
                 Оставаться в системе
             </CheckBoxField>
+            {enterError && (
+                <p
+                    style={{
+                        fontSize: "13px",
+                        fontWeight: "400",
+                        color: "#8d0000",
+                        marginBottom: "5px"
+                    }}
+                >
+                    {enterError}
+                </p>
+            )}
             <button
                 type="submit"
                 disabled={!isValid}

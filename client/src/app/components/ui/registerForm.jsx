@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import TextField from "../common/form/textField/textField";
 // import { validator } from "../../utils/validator";
-import api from "../../api";
 import SelectField from "../common/form/selectField/selectField";
 import RadioField from "../common/form/radioField/radioField";
 import MultySelectField from "../common/form/multySelectField/multySelectField";
 import CheckBoxField from "../common/form/checkBoxField";
-import { standardizationObject } from "../../utils/standardizationObject";
 import * as yup from "yup";
+import { useExperience } from "../../hooks/useExperience";
+import { useStyles } from "../../hooks/useStyles";
+import { useDaws } from "../../hooks/useDaws";
+import { useWorkFormats } from "../../hooks/useWorkFormats";
+import { useAuth } from "../../hooks/useAuth";
+import { useHistory } from "react-router-dom";
 
 const RegisterForm = () => {
     const [data, setData] = useState({
@@ -19,36 +23,33 @@ const RegisterForm = () => {
         country: "",
         experience: "",
         styles: [],
-        daws: [],
-        formats: [],
+        daw: [],
+        workFormat: [],
         soundCloud: "",
         sex: "male",
         license: false
     });
-    const [experience, setExperience] = useState([]);
-    const [styles, setStyles] = useState([]);
-    const [daws, setDaws] = useState([]);
-    const [formats, setFormats] = useState([]);
+
+    function transformData(data) {
+        return data.map((item) => ({ label: item.name, value: item._id }));
+    }
+
+    const { experiences } = useExperience();
+    const experiencesList = transformData(experiences);
+
+    const { styles } = useStyles();
+    const stylesList = transformData(styles);
+
+    const { daws } = useDaws();
+    const dawsList = transformData(daws);
+
+    const { formats } = useWorkFormats();
+    const formatsList = transformData(formats);
+
     const [errors, setErrors] = useState({});
 
-    useEffect(() => {
-        api.experience.fetchAll().then((data) => {
-            const experienceList = standardizationObject(data);
-            setExperience(experienceList);
-        });
-        api.styles.fetchAll().then((data) => {
-            const stylesList = standardizationObject(data);
-            setStyles(stylesList);
-        });
-        api.daws.fetchAll().then((data) => {
-            const dawsList = standardizationObject(data);
-            setDaws(dawsList);
-        });
-        api.formats.fetchAll().then((data) => {
-            const formatsList = standardizationObject(data);
-            setFormats(formatsList);
-        });
-    }, []);
+    const { signUp } = useAuth();
+    const history = useHistory();
 
     useEffect(() => {
         validate();
@@ -64,14 +65,14 @@ const RegisterForm = () => {
                 [true],
                 "Сервис доступен только после подтверждения лицензионного соглашения"
             ),
-        formats: yup
+        workFormat: yup
             .array()
             .test(
                 "required",
                 "Выберите предпочтительный формат работы",
                 (value) => value.length > 0
             ),
-        daws: yup
+        daw: yup
             .array()
             .test(
                 "required",
@@ -185,53 +186,44 @@ const RegisterForm = () => {
         }));
     };
 
-    const getExperienceById = (id) => {
-        for (const elem of experience) {
-            if (elem.value === id) {
-                return { _id: elem.value, name: elem.label };
-            }
-        }
-    };
+    // function getEntities(elements, entities) {
+    //     const entitiesArray = [];
+    //     for (const elem of elements) {
+    //         for (const entity in entities) {
+    //             if (elem.value === entities[entity].value) {
+    //                 entitiesArray.push({
+    //                     _id: entities[entity].value,
+    //                     name: entities[entity].label
+    //                 });
+    //             }
+    //         }
+    //     }
+    //     return entitiesArray;
+    // }
 
-    const getStyles = (elements) => {
-        return getEntities(elements, styles);
-    };
-
-    const getDaws = (elements) => {
-        return getEntities(elements, daws);
-    };
-
-    const getFormats = (elements) => {
-        return getEntities(elements, formats);
-    };
-
-    function getEntities(elements, entities) {
-        const entitiesArray = [];
-        for (const elem of elements) {
-            for (const entity in entities) {
-                if (elem.value === entities[entity].value) {
-                    entitiesArray.push({
-                        _id: entities[entity].value,
-                        name: entities[entity].label
-                    });
-                }
-            }
-        }
-        return entitiesArray;
+    function getArrayId(data) {
+        return data.map((item) => item.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        const { experience, styles, daws, formats } = data;
-        console.log({
+
+        const newData = {
             ...data,
-            experience: getExperienceById(experience),
-            styles: getStyles(styles),
-            daws: getDaws(daws),
-            formats: getFormats(formats)
-        });
+            styles: getArrayId(data.styles),
+            daw: getArrayId(data.daw),
+            workFormat: getArrayId(data.workFormat)
+        };
+
+        try {
+            await signUp(newData);
+            history.push("/");
+        } catch (error) {
+            console.log(error);
+            setErrors(error);
+        }
     };
 
     return (
@@ -285,29 +277,29 @@ const RegisterForm = () => {
                 name="experience"
                 value={data.experience}
                 onChange={handleChange}
-                options={experience}
+                options={experiencesList}
                 error={errors.experience}
             />
             <MultySelectField
                 label="Стили музыки:"
                 name="styles"
-                options={styles}
+                options={stylesList}
                 onChange={handleChange}
                 error={errors.styles}
             />
             <MultySelectField
                 label="DAW:"
-                name="daws"
-                options={daws}
+                name="daw"
+                options={dawsList}
                 onChange={handleChange}
-                error={errors.daws}
+                error={errors.daw}
             />
             <MultySelectField
                 label="Формат работы:"
-                name="formats"
-                options={formats}
+                name="workFormat"
+                options={formatsList}
                 onChange={handleChange}
-                error={errors.formats}
+                error={errors.workFormat}
             />
             <TextField
                 label="Ссылка на аккаунт SoundCloud"

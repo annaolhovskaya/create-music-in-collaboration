@@ -10,7 +10,7 @@ export const useExperience = () => {
 };
 
 export const ExperienceProvider = ({ children }) => {
-    const [experinces, setExperiences] = useState([]);
+    const [experiences, setExperiences] = useState([]);
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -36,7 +36,7 @@ export const ExperienceProvider = ({ children }) => {
     }
 
     function getExperience(id) {
-        return experinces.find((exp) => exp._id === id);
+        return experiences.find((exp) => exp._id === id);
     }
 
     function errorCatcher(error) {
@@ -45,7 +45,7 @@ export const ExperienceProvider = ({ children }) => {
     }
     return (
         <ExperienceContext.Provider
-            value={{ experinces, isLoading, getExperience }}
+            value={{ experiences, isLoading, getExperience }}
         >
             {children}
         </ExperienceContext.Provider>

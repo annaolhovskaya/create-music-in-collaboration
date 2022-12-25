@@ -15,55 +15,65 @@ import { ExperienceProvider } from "./hooks/useExperience";
 import { WorkFormatProvider } from "./hooks/useWorkFormats";
 import { StyleProvider } from "./hooks/useStyles";
 import { ToastContainer } from "react-toastify";
+import AuthProvider from "./hooks/useAuth";
+import StartPage from "./components/page/startPage/startPage";
 
 const App = () => {
     return (
         <>
             <div className="page">
-                <NavBar />
-                <Wrapper>
-                    <UserProvider>
-                        <ExperienceProvider>
-                            <DawProvider>
-                                <StyleProvider>
-                                    <WorkFormatProvider>
-                                        <Switch>
-                                            <Route
-                                                path="/initialize"
-                                                component={
-                                                    InitializeDataFirebase
-                                                }
-                                            />
-                                            <Route
-                                                path="/users/:userId?/:edit?"
-                                                component={Users}
-                                            />
-                                            <Route
-                                                path="/collaborations"
-                                                component={CollaborationsPage}
-                                            />
-                                            <Route
-                                                path="/remix"
-                                                component={RemixPage}
-                                            />
-                                            <Route
-                                                path="/login/:type?"
-                                                component={Login}
-                                            />
-                                            <Route
-                                                path="/"
-                                                exact
-                                                component={Main}
-                                            />
-                                            <Redirect to="/" />
-                                        </Switch>
-                                    </WorkFormatProvider>
-                                </StyleProvider>
-                            </DawProvider>
-                        </ExperienceProvider>
-                    </UserProvider>
-                </Wrapper>
-                <Footer />
+                <AuthProvider>
+                    <NavBar />
+                    <Wrapper>
+                        <UserProvider>
+                            <ExperienceProvider>
+                                <DawProvider>
+                                    <StyleProvider>
+                                        <WorkFormatProvider>
+                                            <Switch>
+                                                <Route
+                                                    path="/initialize"
+                                                    component={
+                                                        InitializeDataFirebase
+                                                    }
+                                                />
+                                                <Route
+                                                    path="/users/:userId?/:edit?"
+                                                    component={Users}
+                                                />
+                                                <Route
+                                                    path="/collaborations"
+                                                    component={
+                                                        CollaborationsPage
+                                                    }
+                                                />
+                                                <Route
+                                                    path="/remix"
+                                                    component={RemixPage}
+                                                />
+                                                <Route
+                                                    path="/login/:type?"
+                                                    component={Login}
+                                                />
+                                                <Route
+                                                    path="/start"
+                                                    component={StartPage}
+                                                />
+                                                <Route
+                                                    path="/"
+                                                    exact
+                                                    component={Main}
+                                                />
+                                                <Redirect to="/" />
+                                            </Switch>
+                                        </WorkFormatProvider>
+                                    </StyleProvider>
+                                </DawProvider>
+                            </ExperienceProvider>
+                        </UserProvider>
+                    </Wrapper>
+                    <Footer />
+                </AuthProvider>
             </div>
             <ToastContainer />
         </>

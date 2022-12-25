@@ -742,6 +742,12 @@ h6 {
     background-color: transparent;
 }
 
+.text-danger {
+    font-size: 13px;
+    font-weight: 400;
+    color: #8d0000;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0 50%;

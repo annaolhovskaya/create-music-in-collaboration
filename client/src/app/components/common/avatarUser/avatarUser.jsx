@@ -1,18 +1,13 @@
 import React from "react";
 import stylesCSS from "./avatarUser.module.css";
+import PropTypes from "prop-types";
 
-const AvatarUser = () => {
-    return (
-        <img
-            className={stylesCSS.user__avatar}
-            src={`https://avatars.dicebear.com/api/avataaars/${(
-                Math.random() + 1
-            )
-                .toString(36)
-                .substring(7)}.svg`}
-            // src={user.image}
-        />
-    );
+const AvatarUser = ({ avatar }) => {
+    return <img className={stylesCSS.user__avatar} src={avatar} alt="avatar" />;
+};
+
+AvatarUser.propTypes = {
+    avatar: PropTypes.string.isRequired
 };
 
 export default AvatarUser;

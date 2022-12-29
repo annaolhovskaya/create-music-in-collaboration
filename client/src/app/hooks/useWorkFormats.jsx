@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import formatService from "../services/format.service";
+import workformatService from "../services/format.service";
 import PropTypes from "prop-types";
 
 const WorkFormatContext = React.createContext();
@@ -27,7 +27,7 @@ export const WorkFormatProvider = ({ children }) => {
 
     async function getFormatsList() {
         try {
-            const { content } = await formatService.get();
+            const { content } = await workformatService.fetchAll();
             setFormats(content);
             setLoading(false);
         } catch (error) {

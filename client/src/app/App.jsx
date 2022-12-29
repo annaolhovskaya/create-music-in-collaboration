@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import CollaborationsPage from "./components/page/collaborationsPage";
 import Wrapper from "./components/ui/wrapper/wrapper";
@@ -17,8 +17,22 @@ import { StyleProvider } from "./hooks/useStyles";
 import { ToastContainer } from "react-toastify";
 import AuthProvider from "./hooks/useAuth";
 import StartPage from "./components/page/startPage/startPage";
+import ProtectedRoute from "./components/common/protectedRoute";
+import LogOut from "./layouts/logOut";
+import { useDispatch } from "react-redux";
+import { loadStylesList } from "./store/styles";
+import { loadDawsList } from "./store/daws";
+import { loadWorkformatsList } from "./store/workformats";
 
 const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadStylesList());
+        dispatch(loadDawsList());
+        dispatch(loadWorkformatsList());
+    }, []);
+
     return (
         <>
             <div className="page">
@@ -37,17 +51,17 @@ const App = () => {
                                                         InitializeDataFirebase
                                                     }
                                                 />
-                                                <Route
+                                                <ProtectedRoute
                                                     path="/users/:userId?/:edit?"
                                                     component={Users}
                                                 />
-                                                <Route
+                                                <ProtectedRoute
                                                     path="/collaborations"
                                                     component={
                                                         CollaborationsPage
                                                     }
                                                 />
-                                                <Route
+                                                <ProtectedRoute
                                                     path="/remix"
                                                     component={RemixPage}
                                                 />
@@ -56,14 +70,19 @@ const App = () => {
                                                     component={Login}
                                                 />
                                                 <Route
-                                                    path="/start"
-                                                    component={StartPage}
+                                                    path="/main"
+                                                    component={Main}
+                                                />
+                                                <Route
+                                                    path="/logout"
+                                                    component={LogOut}
                                                 />
                                                 <Route
                                                     path="/"
                                                     exact
-                                                    component={Main}
+                                                    component={StartPage}
                                                 />
+
                                                 <Redirect to="/" />
                                             </Switch>
                                         </WorkFormatProvider>

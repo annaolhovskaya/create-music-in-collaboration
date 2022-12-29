@@ -1,0 +1,9 @@
+.nav__link {
+    margin-left: 47px;
+    text-decoration: none;
+    letter-spacing: 0.05rem;
+    color: #fc4aff;
+    text-shadow: 1px 1px 1px rgb(43, 43, 43);
+
+    transition: color 0.1s linear;
+}

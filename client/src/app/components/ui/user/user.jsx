@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { useExperience } from "../../../hooks/useExperience";
 
 const User = ({ user }) => {
-    const { _id, name, styles, workFormat, experience } = user;
+    const { _id, name, avatar, styles, workFormat, experience } = user;
     const { isLoading, getExperience } = useExperience();
 
     if (!isLoading) {
@@ -17,7 +17,7 @@ const User = ({ user }) => {
         return (
             <div className={stylesCSS.user__item}>
                 <div className={stylesCSS.container__avatar}>
-                    <AvatarUser />
+                    <AvatarUser avatar={avatar} />
                 </div>
 
                 <div className={stylesCSS.user__info}>

@@ -27,7 +27,7 @@ export const DawProvider = ({ children }) => {
 
     async function getDawsList() {
         try {
-            const { content } = await dawService.get();
+            const { content } = await dawService.fetchAll();
             setDaws(content);
             setLoading(false);
         } catch (error) {

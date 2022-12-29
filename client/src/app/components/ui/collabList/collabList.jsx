@@ -36,9 +36,7 @@ const CollabList = () => {
                         <Track track={collab} />
                     </div>
                 ))}
-                <div onClick={handleClick}>
-                    <BtnBlue content="показать больше" />
-                </div>
+                <BtnBlue content="показать больше" onClick={handleClick} />
             </ContentWrapper>
         );
     }

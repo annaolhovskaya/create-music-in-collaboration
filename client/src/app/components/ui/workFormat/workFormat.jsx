@@ -1,12 +1,8 @@
 import React from "react";
 import stylesCSS from "./workFormat.module.css";
 import PropTypes from "prop-types";
-import { useWorkFormats } from "../../../hooks/useWorkFormats";
 
-const WorkFormat = ({ id }) => {
-    const { getFormat } = useWorkFormats();
-    const { name } = getFormat(id);
-
+const WorkFormat = ({ name }) => {
     return (
         <div
             className={
@@ -23,7 +19,7 @@ const WorkFormat = ({ id }) => {
 };
 
 WorkFormat.propTypes = {
-    id: PropTypes.string
+    name: PropTypes.string
 };
 
 export default WorkFormat;

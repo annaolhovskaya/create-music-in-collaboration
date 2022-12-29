@@ -6,10 +6,14 @@ import Pagination from "../../common/pagination";
 import User from "../../ui/user/user";
 import stylesCSS from "./usersListPage.module.css";
 import { useUsers } from "../../../hooks/useUsers";
-import { useDaws } from "../../../hooks/useDaws";
-import { useStyles } from "../../../hooks/useStyles";
-import { useWorkFormats } from "../../../hooks/useWorkFormats";
-import _ from "lodash";
+import { useAuth } from "../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getStyles, getStylesLoadingStatus } from "../../../store/styles";
+import { getDaws, getDawsLoadingStatus } from "../../../store/daws";
+import {
+    getWorkformats,
+    getWorkformatsLoadingStatus
+} from "../../../store/workformats";
 
 const UsersListPage = () => {
     const pageSize = 7;
@@ -19,9 +23,16 @@ const UsersListPage = () => {
     const [selectedFormat, setSelectedFormat] = useState();
 
     const { users } = useUsers();
-    const { daws } = useDaws();
-    const { styles } = useStyles();
-    const { formats } = useWorkFormats();
+    const { currentUser } = useAuth();
+
+    const daws = useSelector(getDaws());
+    const dawsLoading = useSelector(getDawsLoadingStatus());
+
+    const styles = useSelector(getStyles());
+    const stylesLoading = useSelector(getStylesLoadingStatus());
+
+    const formats = useSelector(getWorkformats());
+    const formatsLoading = useSelector(getWorkformatsLoadingStatus());
 
     useEffect(() => {
         setCurrentPage(1);
@@ -44,38 +55,33 @@ const UsersListPage = () => {
     };
 
     const getFilteredUsers = () => {
-        return _.filter(users, function (user) {
-            if (selectedDaw && selectedStyle && selectedFormat) {
-                return (
-                    user.daw.includes(selectedDaw._id) &&
-                    user.styles.includes(selectedStyle._id) &&
-                    user.workFormat.includes(selectedFormat._id)
-                );
-            } else if (selectedDaw && selectedStyle) {
-                return (
-                    user.daw.includes(selectedDaw._id) &&
-                    user.styles.includes(selectedStyle._id)
-                );
-            } else if (selectedStyle && selectedFormat) {
-                return (
-                    user.styles.includes(selectedStyle._id) &&
-                    user.workFormat.includes(selectedFormat._id)
-                );
-            } else if (selectedDaw && selectedFormat) {
-                return (
-                    user.daw.includes(selectedDaw._id) &&
-                    user.workFormat.includes(selectedFormat._id)
-                );
-            } else if (selectedDaw) {
-                return user.daw.includes(selectedDaw._id);
-            } else if (selectedStyle) {
-                return user.styles.includes(selectedStyle._id);
-            } else if (selectedFormat) {
-                return user.workFormat.includes(selectedFormat._id);
-            }
-            return user;
-        });
+        const filtrationParams = [];
+        if (selectedStyle) {
+            filtrationParams.push((data) =>
+                data.styles.includes(selectedStyle._id)
+            );
+        }
+        if (selectedDaw) {
+            filtrationParams.push((data) => data.daw.includes(selectedDaw._id));
+        }
+        if (selectedFormat) {
+            filtrationParams.push((data) =>
+                data.workFormat.includes(selectedFormat._id)
+            );
+        }
+
+        return users.filter((user) =>
+            filtrationParams.length > 0
+                ? filtrationParams.every((param) => param(user))
+                : user
+        );
     };
+
+    const filteredUsers = getFilteredUsers().filter(
+        (user) => user._id !== currentUser._id
+    );
+    const count = filteredUsers.length;
+    const userCrop = paginate(filteredUsers, currentPage, pageSize);
 
     const clearFilter = () => {
         setSelectedDaw();
@@ -83,64 +89,60 @@ const UsersListPage = () => {
         setSelectedFormat();
     };
 
-    if (users && styles && daws && formats) {
-        const filteredUsers = getFilteredUsers();
-        const count = filteredUsers.length;
-        const userCrop = paginate(filteredUsers, currentPage, pageSize);
-
-        return (
-            <div className={stylesCSS.content}>
-                <div className={stylesCSS.filter}>
+    return (
+        <div className={stylesCSS.content}>
+            <div className={stylesCSS.filter}>
+                {styles && !stylesLoading && (
                     <GroupList
                         title="стиль:"
                         items={styles}
                         selectedItem={selectedStyle}
                         onItemSelect={handleStyleSelect}
                     />
-                    <div className={stylesCSS.filter__column}>
+                )}
+                <div className={stylesCSS.filter__column}>
+                    {daws && !dawsLoading && (
                         <GroupList
                             title="DAW:"
                             items={daws}
                             selectedItem={selectedDaw}
                             onItemSelect={handleDawSelect}
                         />
+                    )}
+                    {formats && !formatsLoading && (
                         <GroupList
                             title="формат:"
                             items={formats}
                             selectedItem={selectedFormat}
                             onItemSelect={handleFormatSelect}
                         />
-                        <button
-                            className="btn btn-sm btn-primary"
-                            onClick={clearFilter}
-                        >
-                            Сбросить фильтры
-                        </button>
-                    </div>
-                </div>
-                <div className={stylesCSS.all__content}>
-                    {users &&
-                        userCrop.map((user) => (
-                            <div
-                                className={stylesCSS.all__users__items}
-                                key={user._id}
-                            >
-                                <User user={user} />
-                                <BtnBlueSmall content="добавить в друзья" />
-                            </div>
-                        ))}
-                    <div className="d-flex justify-content-center">
-                        <Pagination
-                            itemsCount={count}
-                            pageSize={pageSize}
-                            currentPage={currentPage}
-                            onPageChange={handlePageChange}
-                        />
-                    </div>
+                    )}
+                    <button
+                        className="btn btn-sm btn-primary"
+                        onClick={clearFilter}
+                    >
+                        Сбросить фильтры
+                    </button>
                 </div>
             </div>
-        );
-    }
+            <div className={stylesCSS.all__content}>
+                {userCrop.map((user) => (
+                    <div className={stylesCSS.all__users__items} key={user._id}>
+                        <User user={user} />
+                        <BtnBlueSmall content="добавить в друзья" />
+                    </div>
+                ))}
+                <div className="d-flex justify-content-center">
+                    <Pagination
+                        itemsCount={count}
+                        pageSize={pageSize}
+                        currentPage={currentPage}
+                        onPageChange={handlePageChange}
+                    />
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default UsersListPage;

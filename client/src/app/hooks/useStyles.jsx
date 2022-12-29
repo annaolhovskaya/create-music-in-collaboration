@@ -27,7 +27,7 @@ export const StyleProvider = ({ children }) => {
 
     async function getStylesList() {
         try {
-            const { content } = await styleService.get();
+            const { content } = await styleService.fetchAll();
             setStyles(content);
             setLoading(false);
         } catch (error) {

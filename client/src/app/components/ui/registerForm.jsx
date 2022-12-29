@@ -7,11 +7,12 @@ import MultySelectField from "../common/form/multySelectField/multySelectField";
 import CheckBoxField from "../common/form/checkBoxField";
 import * as yup from "yup";
 import { useExperience } from "../../hooks/useExperience";
-import { useStyles } from "../../hooks/useStyles";
-import { useDaws } from "../../hooks/useDaws";
-import { useWorkFormats } from "../../hooks/useWorkFormats";
 import { useAuth } from "../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getStyles } from "../../store/styles";
+import { getDaws } from "../../store/daws";
+import { getWorkformats } from "../../store/workformats";
 
 const RegisterForm = () => {
     const [data, setData] = useState({
@@ -37,13 +38,13 @@ const RegisterForm = () => {
     const { experiences } = useExperience();
     const experiencesList = transformData(experiences);
 
-    const { styles } = useStyles();
+    const styles = useSelector(getStyles());
     const stylesList = transformData(styles);
 
-    const { daws } = useDaws();
+    const daws = useSelector(getDaws());
     const dawsList = transformData(daws);
 
-    const { formats } = useWorkFormats();
+    const formats = useSelector(getWorkformats());
     const formatsList = transformData(formats);
 
     const [errors, setErrors] = useState({});
@@ -201,7 +202,7 @@ const RegisterForm = () => {
     //     return entitiesArray;
     // }
 
-    function getArrayId(data) {
+    function getArrayIds(data) {
         return data.map((item) => item.value);
     }
 
@@ -212,14 +213,14 @@ const RegisterForm = () => {
 
         const newData = {
             ...data,
-            styles: getArrayId(data.styles),
-            daw: getArrayId(data.daw),
-            workFormat: getArrayId(data.workFormat)
+            styles: getArrayIds(data.styles),
+            daw: getArrayIds(data.daw),
+            workFormat: getArrayIds(data.workFormat)
         };
 
         try {
             await signUp(newData);
-            history.push("/");
+            history.push("/main");
         } catch (error) {
             console.log(error);
             setErrors(error);

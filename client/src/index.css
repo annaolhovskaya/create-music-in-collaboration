@@ -550,7 +550,7 @@ h6 {
 
 .progress::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* display: none; */
+    display: none;
     height: 0px;
     width: 0px;
 }
@@ -735,7 +735,11 @@ h6 {
 }
 
 .card {
+    display: flex;
     background-color: transparent;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    margin: 10px;
 }
 
 .row {
@@ -746,6 +750,28 @@ h6 {
     font-size: 13px;
     font-weight: 400;
     color: #8d0000;
+}
+
+.dropdown-menu {
+    background-color: #7bb4ff;
+    border-color: #ab79f5;
+}
+
+.btn.dropdown-toggle:hover {
+    border-color: #ab79f5;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(24, 255, 255, 0.4);
+    color: white;
+    text-shadow: 1px 1px 1px rgb(43, 43, 43);
+}
+
+.me-2 {
+    color: white;
+    text-shadow: 1px 1px 1px rgb(43, 43, 43);
+    font-size: 17px;
+    font-weight: 700;
 }
 
 @keyframes gradient {

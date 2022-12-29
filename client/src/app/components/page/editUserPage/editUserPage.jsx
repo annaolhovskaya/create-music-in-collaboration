@@ -1,135 +1,118 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { validator } from "../../../utils/validator";
-import api from "../../../api";
 import TextField from "../../common/form/textField/textField";
 import SelectField from "../../common/form/selectField/selectField";
 import RadioField from "../../common/form/radioField/radioField";
 import MultySelectField from "../../common/form/multySelectField/multySelectField";
-import { standardizationObject } from "../../../utils/standardizationObject";
 import stylesCSS from "./editUserPage.module.css";
-// import BackHistoryButton from "../../common/backButton";
+import { useExperience } from "../../../hooks/useExperience";
+import { useAuth } from "../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getStyles, getStylesLoadingStatus } from "../../../store/styles";
+import { getDaws, getDawsLoadingStatus } from "../../../store/daws";
+import {
+    getWorkformats,
+    getWorkformatsLoadingStatus
+} from "../../../store/workformats";
 
 const EditUserPage = () => {
-    const { userId } = useParams();
     const history = useHistory();
-    const [isLoading, setIsLoading] = useState(false);
-    const [data, setData] = useState({
-        name: "",
-        nickname: "",
-        email: "",
-        city: "",
-        country: "",
-        experience: "",
-        styles: [],
-        daw: [],
-        workFormat: [],
-        soundCloud: "",
-        sex: ""
-    });
-    const [experience, setExperience] = useState([]);
-    const [styles, setStyles] = useState([]);
-    const [daws, setDaws] = useState([]);
-    const [formats, setFormats] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [data, setData] = useState();
+
+    const { experiences, isLoading: experiencesLoading } = useExperience();
+    const experiencesList = transformDataList(experiences);
+
+    const styles = useSelector(getStyles());
+    const stylesLoading = useSelector(getStylesLoadingStatus());
+    const stylesList = transformDataList(styles);
+
+    const daws = useSelector(getDaws());
+    const dawsLoading = useSelector(getDawsLoadingStatus());
+    const dawsList = transformDataList(daws);
+
+    const formats = useSelector(getWorkformats());
+    const formatsLoading = useSelector(getWorkformatsLoadingStatus());
+    const formatsList = transformDataList(formats);
+
+    const { currentUser, updateUserData } = useAuth();
+
     const [errors, setErrors] = useState({});
 
-    const getExperienceById = (id) => {
-        for (const elem of experience) {
-            if (elem.value === id) {
-                return { _id: elem.value, name: elem.label };
-            }
+    useEffect(() => {
+        if (
+            !experiencesLoading &&
+            !stylesLoading &&
+            !dawsLoading &&
+            !formatsLoading &&
+            currentUser &&
+            !data
+        ) {
+            setData({
+                ...currentUser,
+                daw: getEntitiesTransformListByIds(currentUser.daw, daws),
+                styles: getEntitiesTransformListByIds(
+                    currentUser.styles,
+                    styles
+                ),
+                workFormat: getEntitiesTransformListByIds(
+                    currentUser.workFormat,
+                    formats
+                )
+            });
         }
-    };
+    }, [
+        experiencesLoading,
+        stylesLoading,
+        dawsLoading,
+        formatsLoading,
+        currentUser,
+        data
+    ]);
 
-    const getStyles = (elements) => {
-        return getEntities(elements, styles);
-    };
+    useEffect(() => {
+        if (data && isLoading) {
+            setIsLoading(false);
+        }
+    }, [data]);
 
-    const getDaws = (elements) => {
-        return getEntities(elements, daws);
-    };
-
-    const getFormats = (elements) => {
-        return getEntities(elements, formats);
-    };
-
-    function getEntities(elements, entities) {
-        const entitiesArray = [];
-        for (const elem of elements) {
-            for (const entity in entities) {
-                if (elem.value === entities[entity].value) {
-                    entitiesArray.push({
-                        _id: entities[entity].value,
-                        name: entities[entity].label
-                    });
+    function getEntitiesTransformListByIds(entitiesIds, entities) {
+        const dawsArray = [];
+        for (const entityId of entitiesIds) {
+            for (const entity of entities) {
+                if (entity._id === entityId) {
+                    dawsArray.push(entity);
+                    break;
                 }
             }
         }
-        return entitiesArray;
+        return dawsArray.map((qual) => ({
+            label: qual.name,
+            value: qual._id
+        }));
     }
 
-    const handleSubmit = (e) => {
+    function getArrayId(data) {
+        return data.map((item) => item.value);
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        const { experience, styles, daw, formats } = data;
-        api.users
-            .update(userId, {
-                ...data,
-                experience: getExperienceById(experience),
-                styles: getStyles(styles),
-                daw: getDaws(daw),
-                formats: getFormats(formats)
-            })
-            .then((data) => history.push(`/users/${data._id}`));
-        console.log({
+        await updateUserData({
             ...data,
-            experience: getExperienceById(experience),
-            styles: getStyles(styles),
-            daw: getDaws(daw),
-            formats: getFormats(formats)
+            daw: getArrayId(data.daw),
+            styles: getArrayId(data.styles),
+            workFormat: getArrayId(data.workFormat)
         });
+        history.push(`/users/${currentUser._id}`);
     };
 
-    const transformData = (data) => {
+    function transformDataList(data) {
         return data.map((item) => ({ label: item.name, value: item._id }));
-    };
-
-    useEffect(() => {
-        setIsLoading(true);
-        api.users
-            .getById(userId)
-            .then(({ experience, styles, daw, workFormat, ...data }) => {
-                setData((prevState) => ({
-                    ...prevState,
-                    ...data,
-                    experience: experience._id,
-                    styles: transformData(styles),
-                    daw: transformData(daw),
-                    workFormat: transformData(workFormat)
-                }));
-            });
-        api.experience.fetchAll().then((data) => {
-            const experienceList = standardizationObject(data);
-            setExperience(experienceList);
-        });
-        api.styles.fetchAll().then((data) => {
-            const stylesList = standardizationObject(data);
-            setStyles(stylesList);
-        });
-        api.daws.fetchAll().then((data) => {
-            const dawsList = standardizationObject(data);
-            setDaws(dawsList);
-        });
-        api.formats.fetchAll().then((data) => {
-            const formatsList = standardizationObject(data);
-            setFormats(formatsList);
-        });
-    }, []);
-
-    useEffect(() => {
-        if (data._id) setIsLoading(false);
-    }, [data]);
+    }
 
     const validatorConfig = {
         email: {
@@ -178,10 +161,9 @@ const EditUserPage = () => {
 
     return (
         <div className="container mt-5">
-            {/* <BackHistoryButton /> */}
             <div className="row">
                 <div className="col-md-6 offset-md-3 shadow p-4">
-                    {!isLoading && Object.keys(styles).length > 0 ? (
+                    {!isLoading ? (
                         <>
                             <button className={stylesCSS.icon__settings}>
                                 <i
@@ -239,30 +221,30 @@ const EditUserPage = () => {
                                     name="experience"
                                     value={data.experience}
                                     onChange={handleChange}
-                                    options={experience}
+                                    options={experiencesList}
                                     error={errors.experience}
                                 />
                                 <MultySelectField
                                     label="Стили музыки:"
                                     name="styles"
                                     defaultValue={data.styles}
-                                    options={styles}
+                                    options={stylesList}
                                     onChange={handleChange}
                                     error={errors.styles}
                                 />
                                 <MultySelectField
                                     label="DAW:"
-                                    name="daws"
+                                    name="daw"
                                     defaultValue={data.daw}
-                                    options={daws}
+                                    options={dawsList}
                                     onChange={handleChange}
                                     error={errors.daws}
                                 />
                                 <MultySelectField
                                     label="Формат работы:"
-                                    name="formats"
+                                    name="workFormat"
                                     defaultValue={data.workFormat}
-                                    options={formats}
+                                    options={formatsList}
                                     onChange={handleChange}
                                     error={errors.formats}
                                 />

@@ -1,33 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import api from "../../../api";
+import React from "react";
 import _ from "lodash";
 import ContentWrapper from "../contentWrapper/contentWrapper";
 import Commentslist from "../../common/comments/commentsList/commentslist";
 import AddCommentForm from "../../common/addCommentForm/addCommentForm";
+import { useComments } from "../../../hooks/useComments";
 
 const Comments = () => {
-    const { userId } = useParams();
-    const [comments, setComments] = useState();
-
-    useEffect(() => {
-        api.comments
-            .fetchCommentsForUser(userId)
-            .then((data) => setComments(data));
-    }, []);
+    const { comments, createComment, removeComment } = useComments();
 
     const sortedComments = _.orderBy(comments, ["created_at"], ["desc"]);
 
     const handleRemoveComment = (id) => {
-        api.comments
-            .remove(id)
-            .then((id) => setComments(comments.filter((x) => x._id !== id)));
+        removeComment(id);
     };
 
     const handleSubmit = (data) => {
-        api.comments
-            .add({ ...data, pageId: userId })
-            .then((data) => setComments([...comments, data]));
+        createComment(data);
+        // api.comments
+        //     .add({ ...data, pageId: userId })
+        //     .then((data) => setComments([...comments, data]));
     };
     return (
         <ContentWrapper>
@@ -39,8 +30,7 @@ const Comments = () => {
             </div>
             {sortedComments.length > 0 && (
                 <>
-                    <h4 className="form__header">Комментарии</h4>
-                    <hr />
+                    <h5 className="form__header">Комментарии</h5>
                     <Commentslist
                         comments={sortedComments}
                         onRemove={handleRemoveComment}

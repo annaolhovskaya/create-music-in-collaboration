@@ -30,9 +30,7 @@ const RemixList = () => {
                         <Track track={remix} />
                     </div>
                 ))}
-                <div onClick={handleClick}>
-                    <BtnBlue content="показать больше" />
-                </div>
+                <BtnBlue content="показать больше" onClick={handleClick} />
             </ContentWrapper>
         );
     }

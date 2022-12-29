@@ -8,10 +8,11 @@ import UploadMixForm from "../../ui/uploadMixForm/uploadMixForm";
 import UserCard from "../../ui/userCard/userCard";
 import Comments from "../../ui/comments/comments";
 import { useUsers } from "../../../hooks/useUsers";
+import { CommentsProvider } from "../../../hooks/useComments";
 
 const UserPage = ({ userId }) => {
-    const { getUser } = useUsers();
-    const user = getUser(userId);
+    const { getUserById } = useUsers();
+    const user = getUserById(userId);
 
     const [modalActive, setModalActive] = useState(false);
 
@@ -21,7 +22,9 @@ const UserPage = ({ userId }) => {
                 <UserCard user={user} setActive={setModalActive} />
 
                 <ContentWrapper />
-                <Comments />
+                <CommentsProvider>
+                    <Comments />
+                </CommentsProvider>
                 <Modal active={modalActive} setActive={setModalActive}>
                     <UploadMixForm />
                     {/* <FileField />

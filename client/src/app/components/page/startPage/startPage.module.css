@@ -1,4 +1,7 @@
 .title {
+    position: absolute;
+    top: 20%;
+    right: -30%;
     margin-top: 50px;
     margin-bottom: 25px;
     font-size: 32px;
@@ -9,14 +12,25 @@
 }
 
 .paragraph {
-    font-size: 20px;
+    position: absolute;
+    top: 35%;
+    right: -30%;
+    font-size: 18px;
     /* font-weight: 700; */
-    text-align: center;
+    text-align: right;
     color: #05172d;
-    line-height: 2rem;
+    line-height: 2em;
 }
 
 .container__start {
     margin: 0 auto;
-    width: 70%;
+    width: 50%;
+    position: relative;
+}
+
+.start__img {
+    position: absolute;
+    top: 15%;
+    left: -52%;
+    height: 540px;
 }

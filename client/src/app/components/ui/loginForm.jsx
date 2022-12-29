@@ -91,7 +91,11 @@ const LoginForm = () => {
         console.log(data);
         try {
             await logIn(data);
-            history.push("/");
+            history.push(
+                history.location.state
+                    ? history.location.state.from.pathname
+                    : "/main"
+            );
         } catch (error) {
             setEnterError(error.message);
         }

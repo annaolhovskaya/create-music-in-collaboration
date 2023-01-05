@@ -1,12 +1,11 @@
 import React from "react";
-// import api from "../../../../api";
 import PropTypes from "prop-types";
 import { displayDate } from "../../../../utils/displayDate";
 import stylesCSS from "./comment.module.css";
 import AvatarUser from "../../avatarUser/avatarUser";
 import { Link } from "react-router-dom";
-import { useUsers } from "../../../../hooks/useUsers";
-import { useAuth } from "../../../../hooks/useAuth";
+import { useSelector } from "react-redux";
+import { getCurrentUserId, getUserById } from "../../../../store/users";
 
 const Comment = ({
     content,
@@ -15,9 +14,8 @@ const Comment = ({
     userId,
     onRemove
 }) => {
-    const { getUserById } = useUsers();
-    const user = getUserById(userId);
-    const { currentUser } = useAuth();
+    const user = useSelector(getUserById(userId));
+    const currentUserId = useSelector(getCurrentUserId());
 
     return (
         <div className="card">
@@ -45,7 +43,7 @@ const Comment = ({
                             <p className="normal mb-0">{content}</p>
                         </div>
                     )}
-                    {currentUser._id === userId && (
+                    {currentUserId === userId && (
                         <div className={stylesCSS.btn__delete}>
                             <button
                                 className="btn btn-sm text-primary d-flex align-items-center"

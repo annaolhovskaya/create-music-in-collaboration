@@ -8,11 +8,11 @@ import ContentWrapper from "../contentWrapper/contentWrapper";
 import stylesCSS from "./userCard.module.css";
 import PropTypes from "prop-types";
 import WorkFormatList from "../workFormatList/workFormatList";
-import { useExperience } from "../../../hooks/useExperience";
-import { useAuth } from "../../../hooks/useAuth";
 import { useSelector } from "react-redux";
 import { getStylesByIds } from "../../../store/styles";
 import { getDawsByIds } from "../../../store/daws";
+import { getExperienceById } from "../../../store/experiences";
+import { getCurrentUserId } from "../../../store/users";
 
 const UserCard = ({ user, setActive }) => {
     const history = useHistory();
@@ -24,16 +24,16 @@ const UserCard = ({ user, setActive }) => {
         setActive((prevState) => !prevState);
     };
 
-    const { currentUser } = useAuth();
-    const { getExperience } = useExperience();
-    const experience = getExperience(user.experience);
+    const currentUserId = useSelector(getCurrentUserId());
+
+    const experience = useSelector(getExperienceById(user.experience));
 
     const daw = useSelector(getDawsByIds(user.daw));
     const styles = useSelector(getStylesByIds(user.styles));
 
     return (
         <ContentWrapper>
-            {user._id === currentUser._id && (
+            {user._id === currentUserId && (
                 <button
                     className={stylesCSS.icon__settings}
                     onClick={handleClick}

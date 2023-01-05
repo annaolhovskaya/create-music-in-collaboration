@@ -6,15 +6,15 @@ import RadioField from "../common/form/radioField/radioField";
 import MultySelectField from "../common/form/multySelectField/multySelectField";
 import CheckBoxField from "../common/form/checkBoxField";
 import * as yup from "yup";
-import { useExperience } from "../../hooks/useExperience";
-import { useAuth } from "../../hooks/useAuth";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getStyles } from "../../store/styles";
 import { getDaws } from "../../store/daws";
 import { getWorkformats } from "../../store/workformats";
+import { getExperiences } from "../../store/experiences";
+import { signUp } from "../../store/users";
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -35,7 +35,7 @@ const RegisterForm = () => {
         return data.map((item) => ({ label: item.name, value: item._id }));
     }
 
-    const { experiences } = useExperience();
+    const experiences = useSelector(getExperiences());
     const experiencesList = transformData(experiences);
 
     const styles = useSelector(getStyles());
@@ -48,9 +48,6 @@ const RegisterForm = () => {
     const formatsList = transformData(formats);
 
     const [errors, setErrors] = useState({});
-
-    const { signUp } = useAuth();
-    const history = useHistory();
 
     useEffect(() => {
         validate();
@@ -206,7 +203,7 @@ const RegisterForm = () => {
         return data.map((item) => item.value);
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
@@ -218,13 +215,7 @@ const RegisterForm = () => {
             workFormat: getArrayIds(data.workFormat)
         };
 
-        try {
-            await signUp(newData);
-            history.push("/main");
-        } catch (error) {
-            console.log(error);
-            setErrors(error);
-        }
+        dispatch(signUp(newData));
     };
 
     return (

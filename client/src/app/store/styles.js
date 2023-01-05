@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import styleService from "../services/style.service";
+import { isOutdated } from "../utils/isOutdated";
 
 const stylesSlice = createSlice({
     name: "styles",
-    initialState: { entities: null, isLoading: true, error: null },
+    initialState: {
+        entities: null,
+        isLoading: true,
+        error: null,
+        lastFetch: null
+    },
     reducers: {
         stylesRequested(state) {
             state.isLoading = true;
         },
-        stylesRecieved(state, action) {
+        stylesReceived(state, action) {
             state.entities = action.payload;
+            state.lastFetch = Date.now();
             state.isLoading = false;
         },
         stylesRequestFailed(state, action) {
@@ -20,15 +27,18 @@ const stylesSlice = createSlice({
 });
 
 const { actions, reducer: stylesReducer } = stylesSlice;
-const { stylesRequested, stylesRecieved, stylesRequestFailed } = actions;
+const { stylesRequested, stylesReceived, stylesRequestFailed } = actions;
 
-export const loadStylesList = () => async (dispatch) => {
-    dispatch(stylesRequested());
-    try {
-        const { content } = await styleService.fetchAll();
-        dispatch(stylesRecieved(content));
-    } catch (error) {
-        dispatch(stylesRequestFailed(error.message));
+export const loadStylesList = () => async (dispatch, getState) => {
+    const { lastFetch } = getState().styles;
+    if (isOutdated(lastFetch)) {
+        dispatch(stylesRequested());
+        try {
+            const { content } = await styleService.fetchAll();
+            dispatch(stylesReceived(content));
+        } catch (error) {
+            dispatch(stylesRequestFailed(error.message));
+        }
     }
 };
 

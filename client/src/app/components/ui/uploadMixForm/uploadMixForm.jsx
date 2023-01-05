@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 // import FileField from "../../common/form/fileField";
 import RadioField from "../../common/form/radioField/radioField";
-import api from "../../../api";
 import TextField from "../../common/form/textField/textField";
 import stylesCSS from "./uploadMixForm.module.css";
 import FileField from "../../common/form/fileField";
+import { useSelector } from "react-redux";
+import { getWorkformats } from "../../../store/workformats";
 
 const UploadMixForm = () => {
-    const [formats, setFormats] = useState();
     // const [selectedFile, setSelectedFile] = useState();
 
-    useEffect(() => {
-        api.formats.fetchAll().then((data) => setFormats(data));
-    }, []);
+    const formats = useSelector(getWorkformats());
 
     const [data, setData] = useState({
         author: "",
@@ -63,16 +61,9 @@ const UploadMixForm = () => {
                     label="Альбом"
                     name="album"
                     value={data.album}
-                    options={[
-                        {
-                            name: "collaboration",
-                            value: formats.collaboration.name
-                        },
-                        {
-                            name: "remix",
-                            value: formats.remix.name
-                        }
-                    ]}
+                    options={formats.map((f) => {
+                        return { name: f.name, value: f.name };
+                    })}
                     onChange={handleChange}
                 />
             )}

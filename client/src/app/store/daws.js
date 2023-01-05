@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import dawService from "../services/daw.services";
+import { isOutdated } from "../utils/isOutdated";
 
 const dawsSlice = createSlice({
     name: "daws",
-    initialState: { entities: null, isLoading: true, error: null },
+    initialState: {
+        entities: null,
+        isLoading: true,
+        error: null,
+        lastFetch: null
+    },
     reducers: {
         dawsRequested(state) {
             state.isLoading = true;
         },
-        dawsRecieved(state, action) {
+        dawsReceived(state, action) {
             state.entities = action.payload;
+            state.lastFetch = Date.now();
             state.isLoading = false;
         },
         dawsRequestFailed(state, action) {
@@ -20,15 +27,18 @@ const dawsSlice = createSlice({
 });
 
 const { actions, reducer: dawsReducer } = dawsSlice;
-const { dawsRequested, dawsRecieved, dawsRequestFailed } = actions;
+const { dawsRequested, dawsReceived, dawsRequestFailed } = actions;
 
-export const loadDawsList = () => async (dispatch) => {
-    dispatch(dawsRequested());
-    try {
-        const { content } = await dawService.fetchAll();
-        dispatch(dawsRecieved(content));
-    } catch (error) {
-        dispatch(dawsRequestFailed(error.message));
+export const loadDawsList = () => async (dispatch, getState) => {
+    const { lastFetch } = getState().daws;
+    if (isOutdated(lastFetch)) {
+        dispatch(dawsRequested());
+        try {
+            const { content } = await dawService.fetchAll();
+            dispatch(dawsReceived(content));
+        } catch (error) {
+            dispatch(dawsRequestFailed(error.message));
+        }
     }
 };
 

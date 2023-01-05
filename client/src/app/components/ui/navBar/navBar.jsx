@@ -1,12 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
-import { useAuth } from "../../../hooks/useAuth";
+import { getIsLoggedIn } from "../../../store/users";
 import NavProfile from "../navProfile/navProfile";
 import stylesCSS from "./navBar.module.css";
 
 const NavBar = () => {
-    const { currentUser } = useAuth();
+    const isLoggedIn = useSelector(getIsLoggedIn());
+
     return (
         <div className={stylesCSS.header}>
             <div className={stylesCSS.container_custom}>
@@ -21,7 +23,7 @@ const NavBar = () => {
                             <p>create music in collaboration</p>
                         </Link>
                     </div>
-                    {currentUser && (
+                    {isLoggedIn && (
                         <nav className={stylesCSS.nav}>
                             <Link className={stylesCSS.nav__link} to="/users">
                                 пользователи
@@ -38,7 +40,7 @@ const NavBar = () => {
                         </nav>
                     )}
 
-                    {currentUser ? (
+                    {isLoggedIn ? (
                         <NavProfile />
                     ) : (
                         <nav className={stylesCSS.nav}>

@@ -3,19 +3,20 @@ import TextField from "../common/form/textField/textField";
 // import { validator } from "../../utils/validator";
 import CheckBoxField from "../common/form/checkBoxField";
 import * as yup from "yup";
-import { useAuth } from "../../hooks/useAuth";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getAuthErrors, logIn } from "../../store/users";
 
 const LoginForm = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
     const [data, setData] = useState({
         email: "",
         password: "",
         stayOn: false
     });
     const [errors, setErrors] = useState({});
-    const [enterError, setEnterError] = useState(null);
-    const { logIn } = useAuth();
-    const history = useHistory();
+    const logInError = useSelector(getAuthErrors());
 
     useEffect(() => {
         validate();
@@ -81,24 +82,16 @@ const LoginForm = () => {
             ...prevState,
             [target.name]: target.value
         }));
-        setEnterError(null);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        console.log(data);
-        try {
-            await logIn(data);
-            history.push(
-                history.location.state
-                    ? history.location.state.from.pathname
-                    : "/main"
-            );
-        } catch (error) {
-            setEnterError(error.message);
-        }
+        const redirect = history.location.state
+            ? history.location.state.from.pathname
+            : "/main";
+        dispatch(logIn({ payload: data, redirect }));
     };
 
     return (
@@ -126,7 +119,7 @@ const LoginForm = () => {
             >
                 Оставаться в системе
             </CheckBoxField>
-            {enterError && (
+            {logInError && (
                 <p
                     style={{
                         fontSize: "13px",
@@ -135,7 +128,7 @@ const LoginForm = () => {
                         marginBottom: "5px"
                     }}
                 >
-                    {enterError}
+                    {logInError}
                 </p>
             )}
             <button

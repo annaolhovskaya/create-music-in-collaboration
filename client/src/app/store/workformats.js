@@ -1,15 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import workformatService from "../services/format.service";
+import { isOutdated } from "../utils/isOutdated";
 
 const workformatsSlice = createSlice({
     name: "workformats",
-    initialState: { entities: null, isLoading: true, error: null },
+    initialState: {
+        entities: null,
+        isLoading: true,
+        error: null,
+        lastFetch: null
+    },
     reducers: {
         workformatsRequested(state) {
             state.isLoading = true;
         },
-        workformatsRecieved(state, action) {
+        workformatsReceived(state, action) {
             state.entities = action.payload;
+            state.lastFetch = Date.now();
             state.isLoading = false;
         },
         workformatsRequestFailed(state, action) {
@@ -20,16 +27,19 @@ const workformatsSlice = createSlice({
 });
 
 const { actions, reducer: workformatsReducer } = workformatsSlice;
-const { workformatsRequested, workformatsRecieved, workformatsRequestFailed } =
+const { workformatsRequested, workformatsReceived, workformatsRequestFailed } =
     actions;
 
-export const loadWorkformatsList = () => async (dispatch) => {
-    dispatch(workformatsRequested());
-    try {
-        const { content } = await workformatService.fetchAll();
-        dispatch(workformatsRecieved(content));
-    } catch (error) {
-        dispatch(workformatsRequestFailed(error.message));
+export const loadWorkformatsList = () => async (dispatch, getState) => {
+    const { lastFetch } = getState().workformats;
+    if (isOutdated(lastFetch)) {
+        dispatch(workformatsRequested());
+        try {
+            const { content } = await workformatService.fetchAll();
+            dispatch(workformatsReceived(content));
+        } catch (error) {
+            dispatch(workformatsRequestFailed(error.message));
+        }
     }
 };
 

@@ -4,11 +4,12 @@ import User from "./ui/user/user";
 import ContentWrapper from "./ui/contentWrapper/contentWrapper";
 import BtnBlue from "./ui/btnBlue/btnBlue";
 import { useHistory } from "react-router-dom";
-import { useUsers } from "../hooks/useUsers";
+import { useSelector } from "react-redux";
+import { getUsers } from "../store/users";
 
 const RandomUsersList = () => {
     const history = useHistory();
-    const { users } = useUsers();
+    const users = useSelector(getUsers());
 
     const handleClick = () => {
         history.push("/users");

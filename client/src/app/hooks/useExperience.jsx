@@ -27,7 +27,7 @@ export const ExperienceProvider = ({ children }) => {
 
     async function getExperienceList() {
         try {
-            const { content } = await experienceService.get();
+            const { content } = await experienceService.fetchAll();
             setExperiences(content);
             setLoading(false);
         } catch (error) {

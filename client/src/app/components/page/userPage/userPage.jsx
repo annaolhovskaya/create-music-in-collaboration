@@ -7,24 +7,19 @@ import Modal from "../../common/modal/modal";
 import UploadMixForm from "../../ui/uploadMixForm/uploadMixForm";
 import UserCard from "../../ui/userCard/userCard";
 import Comments from "../../ui/comments/comments";
-import { useUsers } from "../../../hooks/useUsers";
-import { CommentsProvider } from "../../../hooks/useComments";
+import { useSelector } from "react-redux";
+import { getUserById } from "../../../store/users";
 
 const UserPage = ({ userId }) => {
-    const { getUserById } = useUsers();
-    const user = getUserById(userId);
-
+    const user = useSelector(getUserById(userId));
     const [modalActive, setModalActive] = useState(false);
 
     if (user) {
         return (
             <>
                 <UserCard user={user} setActive={setModalActive} />
-
                 <ContentWrapper />
-                <CommentsProvider>
-                    <Comments />
-                </CommentsProvider>
+                <Comments />
                 <Modal active={modalActive} setActive={setModalActive}>
                     <UploadMixForm />
                     {/* <FileField />

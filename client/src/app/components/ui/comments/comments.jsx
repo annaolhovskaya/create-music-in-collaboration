@@ -1,25 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import _ from "lodash";
 import ContentWrapper from "../contentWrapper/contentWrapper";
 import Commentslist from "../../common/comments/commentsList/commentslist";
 import AddCommentForm from "../../common/addCommentForm/addCommentForm";
-import { useComments } from "../../../hooks/useComments";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    createComment,
+    getComments,
+    getCommentsLoadingStatus,
+    loadCommentsList,
+    removeComment
+} from "../../../store/comments";
+import { useParams } from "react-router-dom";
 
 const Comments = () => {
-    const { comments, createComment, removeComment } = useComments();
+    const { userId } = useParams();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loadCommentsList(userId));
+    }, [userId]);
+
+    const comments = useSelector(getComments());
+    const isLoading = useSelector(getCommentsLoadingStatus());
 
     const sortedComments = _.orderBy(comments, ["created_at"], ["desc"]);
 
     const handleRemoveComment = (id) => {
-        removeComment(id);
+        dispatch(removeComment(id));
     };
 
     const handleSubmit = (data) => {
-        createComment(data);
-        // api.comments
-        //     .add({ ...data, pageId: userId })
-        //     .then((data) => setComments([...comments, data]));
+        dispatch(createComment({ ...data, pageId: userId }));
     };
+
     return (
         <ContentWrapper>
             <div className="card mb-2">
@@ -31,10 +45,12 @@ const Comments = () => {
             {sortedComments.length > 0 && (
                 <>
                     <h5 className="form__header">Комментарии</h5>
-                    <Commentslist
-                        comments={sortedComments}
-                        onRemove={handleRemoveComment}
-                    />
+                    {!isLoading && (
+                        <Commentslist
+                            comments={sortedComments}
+                            onRemove={handleRemoveComment}
+                        />
+                    )}
                 </>
             )}
         </ContentWrapper>

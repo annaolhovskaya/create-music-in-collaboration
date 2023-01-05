@@ -5,8 +5,6 @@ import GroupList from "../../common/groupList";
 import Pagination from "../../common/pagination";
 import User from "../../ui/user/user";
 import stylesCSS from "./usersListPage.module.css";
-import { useUsers } from "../../../hooks/useUsers";
-import { useAuth } from "../../../hooks/useAuth";
 import { useSelector } from "react-redux";
 import { getStyles, getStylesLoadingStatus } from "../../../store/styles";
 import { getDaws, getDawsLoadingStatus } from "../../../store/daws";
@@ -14,6 +12,7 @@ import {
     getWorkformats,
     getWorkformatsLoadingStatus
 } from "../../../store/workformats";
+import { getCurrentUserId, getUsers } from "../../../store/users";
 
 const UsersListPage = () => {
     const pageSize = 7;
@@ -22,8 +21,8 @@ const UsersListPage = () => {
     const [selectedDaw, setSelectedDaw] = useState();
     const [selectedFormat, setSelectedFormat] = useState();
 
-    const { users } = useUsers();
-    const { currentUser } = useAuth();
+    const users = useSelector(getUsers());
+    const currentUserId = useSelector(getCurrentUserId());
 
     const daws = useSelector(getDaws());
     const dawsLoading = useSelector(getDawsLoadingStatus());
@@ -78,7 +77,7 @@ const UsersListPage = () => {
     };
 
     const filteredUsers = getFilteredUsers().filter(
-        (user) => user._id !== currentUser._id
+        (user) => user._id !== currentUserId
     );
     const count = filteredUsers.length;
     const userCrop = paginate(filteredUsers, currentPage, pageSize);

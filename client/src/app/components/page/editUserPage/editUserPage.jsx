@@ -6,22 +6,27 @@ import SelectField from "../../common/form/selectField/selectField";
 import RadioField from "../../common/form/radioField/radioField";
 import MultySelectField from "../../common/form/multySelectField/multySelectField";
 import stylesCSS from "./editUserPage.module.css";
-import { useExperience } from "../../../hooks/useExperience";
-import { useAuth } from "../../../hooks/useAuth";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getStyles, getStylesLoadingStatus } from "../../../store/styles";
 import { getDaws, getDawsLoadingStatus } from "../../../store/daws";
 import {
     getWorkformats,
     getWorkformatsLoadingStatus
 } from "../../../store/workformats";
+import {
+    getExperiences,
+    getExperiencesLoadingStatus
+} from "../../../store/experiences";
+import { getCurrentUserData, updateUser } from "../../../store/users";
 
 const EditUserPage = () => {
+    const dispatch = useDispatch();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState();
 
-    const { experiences, isLoading: experiencesLoading } = useExperience();
+    const experiences = useSelector(getExperiences());
+    const experiencesLoading = useSelector(getExperiencesLoadingStatus());
     const experiencesList = transformDataList(experiences);
 
     const styles = useSelector(getStyles());
@@ -36,7 +41,7 @@ const EditUserPage = () => {
     const formatsLoading = useSelector(getWorkformatsLoadingStatus());
     const formatsList = transformDataList(formats);
 
-    const { currentUser, updateUserData } = useAuth();
+    const currentUser = useSelector(getCurrentUserData());
 
     const [errors, setErrors] = useState({});
 
@@ -97,17 +102,18 @@ const EditUserPage = () => {
         return data.map((item) => item.value);
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        await updateUserData({
-            ...data,
-            daw: getArrayId(data.daw),
-            styles: getArrayId(data.styles),
-            workFormat: getArrayId(data.workFormat)
-        });
-        history.push(`/users/${currentUser._id}`);
+        dispatch(
+            updateUser({
+                ...data,
+                daw: getArrayId(data.daw),
+                styles: getArrayId(data.styles),
+                workFormat: getArrayId(data.workFormat)
+            })
+        );
     };
 
     function transformDataList(data) {

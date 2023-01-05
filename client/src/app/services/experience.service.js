@@ -3,7 +3,7 @@ import httpService from "./http.service";
 const experienceEndpoint = "experience/";
 
 const experienceService = {
-    get: async () => {
+    fetchAll: async () => {
         const { data } = await httpService.get(experienceEndpoint);
         return data;
     }

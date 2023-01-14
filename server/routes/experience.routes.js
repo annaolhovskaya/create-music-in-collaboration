@@ -1,10 +1,10 @@
 const express = require('express');
-const Daw = require('../models/Daw');
-const router = express.Router();
+const Experience = require('../models/Experience');
+const router = express.Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
   try {
-    const list = await Daw.find();
+    const list = await Experience.find();
     res.status(200).send(list);
   } catch (error) {
     res.status(500).json({

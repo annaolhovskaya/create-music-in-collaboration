@@ -1,10 +1,12 @@
 const Daw = require('../models/Daw');
-const Format = require('../models/Format');
+const WorkFormat = require('../models/WorkFormat');
 const Style = require('../models/Style');
+const Experience = require('../models/Experience');
 
 const dawsMock = require('../mock/daws.json');
-const formatsMock = require('../mock/formats.json');
+const workFormatsMock = require('../mock/workFormats.json');
 const stylesMock = require('../mock/styles.json');
+const experiencesMock = require('../mock/experiences.json');
 
 module.exports = async () => {
   const daws = await Daw.find();
@@ -12,14 +14,19 @@ module.exports = async () => {
     await createInitialEntity(Daw, dawsMock);
   }
 
-  const formats = await Format.find();
-  if (formats.length !== formatsMock.length) {
-    await createInitialEntity(Format, formatsMock);
+  const workFormats = await WorkFormat.find();
+  if (workFormats.length !== workFormatsMock.length) {
+    await createInitialEntity(WorkFormat, workFormatsMock);
   }
 
   const styles = await Style.find();
   if (styles.length !== stylesMock.length) {
     await createInitialEntity(Style, stylesMock);
+  }
+
+  const experiences = await Experience.find();
+  if (experiences.length !== experiencesMock.length) {
+    await createInitialEntity(Experience, experiencesMock);
   }
 };
 

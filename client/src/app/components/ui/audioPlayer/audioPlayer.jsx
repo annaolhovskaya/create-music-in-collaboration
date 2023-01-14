@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
-import PrevBtn from "./mediaPlayer/prevBtn";
-import NextBtn from "./mediaPlayer/nextBtn";
-import Bookmark from "./mediaPlayer/bookmark";
-import PlayBtn from "./mediaPlayer/playBtn";
-import BtnWrapper from "./mediaPlayer/btnWrapper";
-import PauseBtn from "./mediaPlayer/pauseBtn";
+import PrevBtn from "./buttonAudioPlayer/prevBtn";
+import NextBtn from "./buttonAudioPlayer/nextBtn";
+import Bookmark from "./buttonAudioPlayer/bookmark";
+import PlayBtn from "./buttonAudioPlayer/playBtn";
+import BtnWrapper from "./buttonAudioPlayer/btnWrapper";
+import PauseBtn from "./buttonAudioPlayer/pauseBtn";
 
 const tracks = [
     {
@@ -84,7 +84,7 @@ const tracks = [
     }
 ];
 
-const MediaPlayer = () => {
+const AudioPlayer = () => {
     const audioPlayer = useRef();
     const progressBar = useRef();
     const animationRef = useRef();
@@ -111,14 +111,22 @@ const MediaPlayer = () => {
     }, [volume]);
 
     useEffect(() => {
+        console.log(duration);
+    }, [duration]);
+
+    useEffect(() => {
         setCurrentTrack(tracks[trackIndex]);
     }, [trackIndex]);
 
     useEffect(() => {
-        const seconds = Math.floor(audioPlayer?.current?.duration);
-        setDuration(calculateTime(seconds));
+        const seconds = Math.floor(audioPlayer.current.duration);
+        setDuration(seconds);
         progressBar.current.max = seconds;
-    }, [currentTrack, audioPlayer?.current?.readyState]);
+    }, [
+        currentTrack,
+        audioPlayer?.current?.loadedmetadata,
+        audioPlayer?.current?.readyState
+    ]);
 
     const togglePlayPause = () => {
         if (!isPlaying) {
@@ -144,13 +152,12 @@ const MediaPlayer = () => {
     };
 
     const calculateTime = (secs) => {
-        if (secs && !isNaN(secs)) {
-            const minutes = Math.floor(secs / 60);
-            const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
-            const seconds = Math.floor(secs % 60);
-            const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-            return `${returnedMinutes}:${returnedSeconds}`;
-        }
+        const minutes = Math.floor(secs / 60);
+        const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${returnedMinutes}:${returnedSeconds}`;
+
         // return "00:00";
     };
 
@@ -207,15 +214,13 @@ const MediaPlayer = () => {
             />
             <div className="media__player">
                 <BtnWrapper>
-                    <button className="btn__nostyle" onClick={togglePlayPause}>
-                        {isPlaying ? <PauseBtn /> : <PlayBtn />}
-                    </button>
-                    <button className="btn__nostyle" onClick={handlePrev}>
-                        <PrevBtn />
-                    </button>
-                    <button className="btn__nostyle" onClick={handleNext}>
-                        <NextBtn />
-                    </button>
+                    {isPlaying ? (
+                        <PauseBtn onClick={togglePlayPause} />
+                    ) : (
+                        <PlayBtn onClick={togglePlayPause} />
+                    )}
+                    <PrevBtn onClick={handlePrev} />
+                    <NextBtn onClick={handleNext} />
                 </BtnWrapper>
 
                 <div className="track__block">
@@ -270,8 +275,8 @@ const MediaPlayer = () => {
     );
 };
 
-// MediaPlayer.propTypes = {
+// AudioPlayer.propTypes = {
 //     tracks: PropTypes.array.isRequired
 // };
 
-export default MediaPlayer;
+export default AudioPlayer;

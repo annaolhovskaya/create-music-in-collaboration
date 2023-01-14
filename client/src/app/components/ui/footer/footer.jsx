@@ -1,5 +1,5 @@
 import React from "react";
-import MediaPlayer from "../../mediaPlayer";
+import AudioPlayer from "../audioPlayer/audioPlayer";
 import stylesCSS from "./footer.module.css";
 
 const Footer = () => {
@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <div className={stylesCSS.container_custom}>
             <div className={stylesCSS.footer__inner}>
-                <MediaPlayer />
+                <AudioPlayer />
             </div>
         </div>
     );

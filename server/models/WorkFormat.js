@@ -12,4 +12,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model('Format', schema);
+module.exports = model('WorkFormat', schema);

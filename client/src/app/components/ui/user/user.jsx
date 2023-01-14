@@ -26,9 +26,11 @@ const User = ({ user }) => {
                     >
                         <h3 className={stylesCSS.user__item__name}>{name}</h3>
                     </Link>
-                    <h5 className={stylesCSS.icon}>
-                        <i className={exp.icon}></i>
-                    </h5>
+                    {exp && (
+                        <h5 className={stylesCSS.icon}>
+                            <i className={exp.icon}></i>
+                        </h5>
+                    )}
                 </div>
                 <WorkFormatList workFormat={workFormat} />
                 <StylesList styles={styles} />

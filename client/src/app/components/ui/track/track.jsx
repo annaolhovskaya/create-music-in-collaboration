@@ -1,5 +1,5 @@
 import React from "react";
-import Bookmark from "../../mediaPlayer/bookmark";
+import Bookmark from "../../ui/audioPlayer/buttonAudioPlayer/bookmark";
 import stylesCSS from "./track.module.css";
 import PropTypes from "prop-types";
 

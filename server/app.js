@@ -26,9 +26,11 @@ async function start() {
       initDatabase();
     });
     await mongoose.connect(config.get('mongoUri'));
-    console.log(chalk.blue(`MongoDB connected!`));
+    console.log(chalk.bgYellow(`MongoDB connected!`));
     app.listen(PORT, () => {
-      console.log(chalk.green(`Server has been started on port ${PORT}...`));
+      console.log(
+        chalk.bgBlue.bold(`Server has been started on port ${PORT}...`)
+      );
     });
   } catch (error) {
     console.log(chalk.red(error.message));

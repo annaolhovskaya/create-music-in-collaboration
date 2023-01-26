@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { validator } from "../../../utils/validator";
 import TextAreaField from "../form/textAriaField/textAriaField";
 import PropTypes from "prop-types";
+import BtnBlueSmall from "../../ui/btnBlueSmall/btnBlueSmall";
 
 const AddCommentForm = ({ onSubmit }) => {
     const [data, setData] = useState({});
@@ -54,9 +55,11 @@ const AddCommentForm = ({ onSubmit }) => {
                     error={errors.content}
                 />
                 <div className="d-flex justify-content-end">
-                    <button className="btn btn-primary btn-sm">
-                        Опубликовать
-                    </button>
+                    <BtnBlueSmall
+                        type="submit"
+                        content="опубликовать"
+                        onSubmit={handleSubmit}
+                    />
                 </div>
             </form>
         </div>

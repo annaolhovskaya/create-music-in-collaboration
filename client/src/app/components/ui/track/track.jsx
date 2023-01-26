@@ -2,30 +2,56 @@ import React from "react";
 import Bookmark from "../../ui/audioPlayer/buttonAudioPlayer/bookmark";
 import stylesCSS from "./track.module.css";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Offer from "../offer/offer";
+import { getUsersLoadingStatus } from "../../../store/users";
+import { useSelector } from "react-redux";
 
-const Track = ({ track }) => {
-    if (track) {
-        const { title, author } = track;
+const Track = ({ track, remark }) => {
+    const isLoading = useSelector(getUsersLoadingStatus());
+    const { title, author, userId } = track;
+
+    // const [isOpen, setOpen] = useState(false);
+
+    // const handleClick = () => {
+    //     setOpen((prevState) => !prevState);
+    // };
+
+    if (!isLoading) {
         return (
             <>
-                <div className={stylesCSS.track__content}>
-                    <div className={stylesCSS.track__list__info}>
-                        <div className={stylesCSS.track__title}>{title}</div>
-                        <div className={stylesCSS.track__author}>{author}</div>
+                <div className={stylesCSS.container}>
+                    <div className={stylesCSS.track__content}>
+                        <div className={stylesCSS.track__list__info}>
+                            <Link
+                                to={`/users/${userId}`}
+                                className={stylesCSS.link__nostyle}
+                            >
+                                <div className={stylesCSS.track__author}>
+                                    {author}
+                                </div>
+                            </Link>
+
+                            <div className={stylesCSS.track__title}>
+                                {title}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className={stylesCSS.track__list__duration__bookmark}>
-                    <div className={stylesCSS.track__list__duration}>2:13</div>
-                    <Bookmark />
+                    {remark && (
+                        <div className={stylesCSS.track__list__offer__bookmark}>
+                            <Bookmark track={track} />
+                            <Offer track={track} />
+                        </div>
+                    )}
                 </div>
             </>
         );
     }
-    return "Loading...";
 };
 
 Track.propTypes = {
-    track: PropTypes.object.isRequired
+    track: PropTypes.object.isRequired,
+    remark: PropTypes.bool
 };
 
 export default Track;

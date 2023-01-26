@@ -1,3 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .track__content {
     display: flex;
     justify-content: space-between;
@@ -8,29 +14,31 @@
     font-size: 15px;
 }
 
-.track__title {
+.track__author {
     margin-bottom: 3px;
 }
 
-.track__author {
+.track__title {
     margin-bottom: 0;
     font-weight: 400;
 }
 
-.track__list__duration__bookmark {
+.track__list__offer__bookmark {
     display: flex;
-    flex-direction: column;
     position: absolute;
-    top: 50%;
+    align-items: center;
+    justify-items: center;
     right: 0;
-    margin-top: -24px;
+    width: 65px;
+    justify-content: space-between;
+    /* margin-top: -24px; */
 }
 
-.track__list__duration__bookmark {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -24px;
+.link__nostyle {
+    text-decoration: none;
+    color: #05172d;
+}
+
+.offer {
+    margin-left: 50px;
 }

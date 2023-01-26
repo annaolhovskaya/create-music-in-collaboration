@@ -14,12 +14,13 @@ import StartPage from "./components/page/startPage/startPage";
 import ProtectedRoute from "./components/common/protectedRoute";
 import LogOut from "./layouts/logOut";
 import AppLoader from "./components/ui/hoc/appLoader";
+import TracksLoader from "./components/ui/hoc/tracksLoader";
 
 const App = () => {
     return (
         <>
-            <div className="page">
-                <AppLoader>
+            <AppLoader>
+                <div className="page">
                     <NavBar />
                     <Wrapper>
                         <Switch>
@@ -36,20 +37,26 @@ const App = () => {
                                 component={CollaborationsPage}
                             />
                             <ProtectedRoute
-                                path="/remix"
+                                path="/remixes"
                                 component={RemixPage}
                             />
-                            <Route path="/login/:type?" component={Login} />
                             <ProtectedRoute path="/main" component={Main} />
+                            <Route path="/login/:type?" component={Login} />
                             <Route path="/logout" component={LogOut} />
                             <Route path="/" exact component={StartPage} />
-
                             <Redirect to="/" />
                         </Switch>
                     </Wrapper>
-                    <Footer />
-                </AppLoader>
-            </div>
+                    <TracksLoader>
+                        <Route
+                            render={({ location }) =>
+                                location.pathname !== "/login" &&
+                                location.pathname !== "/" && <Footer />
+                            }
+                        />
+                    </TracksLoader>
+                </div>
+            </AppLoader>
             <ToastContainer />
         </>
     );

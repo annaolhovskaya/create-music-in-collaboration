@@ -1,0 +1,8 @@
+.track__list__block {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* justify-content: space-between; */
+
+    margin: 10px 15px;
+}

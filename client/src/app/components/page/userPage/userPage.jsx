@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ContentWrapper from "../../ui/contentWrapper/contentWrapper";
 import PropTypes from "prop-types";
 import Modal from "../../common/modal/modal";
 // import FileField from "../../common/form/fileField/fileField";
@@ -9,6 +8,8 @@ import UserCard from "../../ui/userCard/userCard";
 import Comments from "../../ui/comments/comments";
 import { useSelector } from "react-redux";
 import { getUserById } from "../../../store/users";
+import Loader from "../../common/loader/loader";
+import UserAudioContent from "../../ui/userAudioContent/userAudioContent";
 
 const UserPage = ({ userId }) => {
     const user = useSelector(getUserById(userId));
@@ -18,10 +19,10 @@ const UserPage = ({ userId }) => {
         return (
             <>
                 <UserCard user={user} setActive={setModalActive} />
-                <ContentWrapper />
+                <UserAudioContent />
                 <Comments />
                 <Modal active={modalActive} setActive={setModalActive}>
-                    <UploadMixForm />
+                    <UploadMixForm nickname={user.nickname} userId={user._id} />
                     {/* <FileField />
                     <RadioField
                         options={[
@@ -39,7 +40,7 @@ const UserPage = ({ userId }) => {
             </>
         );
     } else {
-        return <h1>Loading...</h1>;
+        return <Loader />;
     }
 };
 

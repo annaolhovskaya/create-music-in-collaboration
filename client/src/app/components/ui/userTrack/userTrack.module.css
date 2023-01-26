@@ -1,0 +1,37 @@
+.header {
+    margin: 10px auto;
+    text-align: center;
+    color: #18ffff;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 15px 10px 0;
+}
+
+.track__list__block {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+
+    margin: 10px 15px;
+}
+
+.all__users__items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container__btn {
+    display: flex;
+    align-items: center;
+}
+
+.btn__delete {
+    display: flex;
+    height: 32px;
+    text-align: center;
+}

@@ -1,46 +1,25 @@
-import React, { useState, useEffect } from "react";
-import api from "../../../api";
-import { getRandomNumberArray } from "../../../utils/getRandomNumberArray";
-import Track from "../track/track";
-import ContentWrapper from "../contentWrapper/contentWrapper";
-import TrackCover from "../trackCover/trackCover";
-import BtnBlue from "../btnBlue/btnBlue";
-import { useHistory } from "react-router-dom";
-import stylesCSS from "./collabList.module.css";
+import React from "react";
+import { useSelector } from "react-redux";
+import { getAlbumIdByName } from "../../../store/albums";
+import {
+    getTracksByAlbumId,
+    getTracksLoadingStatus
+} from "../../../store/tracks";
+import Loader from "../../common/loader/loader";
+import RandomTrackList from "../randomTrackList/randomTrackList";
+
+const NAME = "collaborations";
 
 const CollabList = () => {
-    const history = useHistory();
-    const [collabs, setCollabs] = useState();
+    const albumId = useSelector(getAlbumIdByName(NAME));
+    const collabs = useSelector(getTracksByAlbumId(albumId));
+    const isLoading = useSelector(getTracksLoadingStatus());
 
-    useEffect(() => {
-        api.tracks.fetchAll().then((data) => setCollabs(data));
-    }, []);
-
-    const handleClick = () => {
-        history.push("/collaborations");
-    };
-
-    if (collabs) {
-        const randomNumberArray = getRandomNumberArray(collabs.length, 0, 12);
-        const randomCollabs = randomNumberArray.map(
-            (number) => collabs[number]
-        );
-        return (
-            <ContentWrapper>
-                {randomCollabs.map((collab) => (
-                    <div
-                        className={stylesCSS.track__list__block}
-                        key={collab.title}
-                    >
-                        <TrackCover />
-                        <Track track={collab} />
-                    </div>
-                ))}
-                <BtnBlue content="показать больше" onClick={handleClick} />
-            </ContentWrapper>
-        );
+    if (!isLoading) {
+        return <RandomTrackList data={collabs} />;
+    } else {
+        return <Loader />;
     }
-    return "Loading...";
 };
 
 export default CollabList;

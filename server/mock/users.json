@@ -1,0 +1,487 @@
+[
+    {
+        "_id": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+        "name": "Евсеев Тимофей",
+        "nickname": "Voyage",
+        "email": "evs.tim@mail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/df9kb7.svg",
+        "city": "Москва",
+        "country": "Россия",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["1f8f56c9-37a3-4377-b083-a897205c03be"],
+        "styles": [
+            "44a8a93b-5262-4702-98f4-0708c54bcfbf",
+            "34a65a16-c408-4691-96d7-e650918ffc78"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Voyage",
+        "instagram": "https://www.instagram.com/Voyage",
+        "contactEmail": "evs.tim@mail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+        "name": "Robert Oliver",
+        "nickname": "Double Trouble",
+        "email": "doubletrouble@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vj8df5.svg",
+        "city": "Sydney",
+        "country": "Australia",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": ["5413a951-ba4b-4508-88dd-04dc290ed0e9"],
+        "styles": [
+            "4a90735d-1155-43f3-aa06-d20629c03101",
+            "34a65a16-c408-4691-96d7-e650918ffc78"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Double_Trouble",
+        "instagram": "https://www.instagram.com/Double_Trouble",
+        "contactEmail": "doubletrouble@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+        "name": "Heartbeats",
+        "nickname": "Heartbeats",
+        "email": "heartzzz@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vb0kd6.svg",
+        "city": "Boston",
+        "country": "USA",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["28f88340-e447-4e64-af67-8528e2dad926"],
+        "styles": [
+            "bbf5ae28-6c46-43ee-8363-d912a504b0ef",
+            "34a65a16-c408-4691-96d7-e650918ffc78"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Heartbeats",
+        "instagram": "https://www.instagram.com/Heartbeats",
+        "contactEmail": "heartzzz@gmail.com",
+        "sex": "other"
+    },
+    {
+        "_id": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+        "name": "DJ Whistle",
+        "nickname": "DJ Whistle",
+        "email": "super_dj_whistle@yandex.ru",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/dj8cb4.svg",
+        "city": "Санкт-Петербург",
+        "country": "Россия",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": [
+            "c0e68e2f-f5fd-4aa8-aec9-39925fb03f05",
+            "496ca540-62fb-4c23-a835-542e5d1b7b5c"
+        ],
+        "styles": [
+            "63c1fe98-0490-4ee5-86d7-77025d364bba",
+            "7c278aea-45cd-45f3-abe3-94b7037219fe"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Whistle",
+        "instagram": "https://www.instagram.com/DJ_Whistle",
+        "contactEmail": "super_dj_whistle@yandex.ru",
+        "sex": "male"
+    },
+    {
+        "_id": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+        "name": "Donna Stevens",
+        "nickname": "Fluke",
+        "email": "fluke.donna@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vj8df5.svg",
+        "city": "Amsterdam",
+        "country": "Netherlands",
+        "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
+        "daw": ["1f8f56c9-37a3-4377-b083-a897205c03be"],
+        "styles": [
+            "4a90735d-1155-43f3-aa06-d20629c03101",
+            "814020cd-fe2f-4af6-89b4-9e36e27a8c08"
+        ],
+        "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Fluke",
+        "instagram": "https://www.instagram.com/Fluke",
+        "contactEmail": "fluke.donna@gmail.com",
+        "sex": "female"
+    },
+    {
+        "_id": "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+        "name": "DJ Ambit",
+        "nickname": "DJ Ambit",
+        "email": "ambit_dj@mail.ru",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/xk6xb2.svg",
+        "city": "Екатеринбург",
+        "country": "Россия",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": [
+            "7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969",
+            "1f8f56c9-37a3-4377-b083-a897205c03be"
+        ],
+        "styles": [
+            "a26dc812-8a5f-466c-8ebc-3606746f27f4",
+            "5e53aa26-7c4a-4574-8d38-31f131d52fb4",
+            "adee6749-1f88-4cb8-b6f4-5b0905a3ba46"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Ambit",
+        "instagram": "https://www.instagram.com/DJ_Ambit",
+        "contactEmail": "ambit_dj@mail.ru",
+        "sex": "male"
+    },
+    {
+        "_id": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+        "name": "Сорокина Яна",
+        "nickname": "Ink",
+        "email": "ink_ink_yana@yandex.ru",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zc7sj4.svg",
+        "city": "Казань",
+        "country": "Россия",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": ["5413a951-ba4b-4508-88dd-04dc290ed0e9"],
+        "styles": [
+            "bbf5ae28-6c46-43ee-8363-d912a504b0ef",
+            "35c97a13-0a32-46e4-90bb-19e9663b369b"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Ink",
+        "instagram": "https://www.instagram.com/Ink",
+        "contactEmail": "ink_ink_yana@yandex.ru",
+        "sex": "female"
+    },
+    {
+        "_id": "bfadad10-545c-4956-b285-666f2d1ceb84",
+        "name": "Karen Brown",
+        "nickname": "Omen",
+        "email": "omen99@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zl9cb6.svg",
+        "city": "Cleveland",
+        "country": "USA",
+        "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
+        "daw": [
+            "1f8f56c9-37a3-4377-b083-a897205c03be",
+            "7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969"
+        ],
+        "styles": [
+            "b9ee8531-703f-4167-96b7-864f2ac49c51",
+            "672b6675-3934-4b1f-83dd-ddde8cdc3908"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Omen",
+        "instagram": "https://www.instagram.com/Omen",
+        "contactEmail": "omen99@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+        "name": "DJ Quicksand",
+        "nickname": "DJ Quicksand",
+        "email": "quickdjsand@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zl9aj7.svg",
+        "city": "Edmonton",
+        "country": "Canada",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": ["c0e68e2f-f5fd-4aa8-aec9-39925fb03f05"],
+        "styles": ["7c278aea-45cd-45f3-abe3-94b7037219fe"],
+        "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Quicksand",
+        "instagram": "https://www.instagram.com/DJ_Quicksand",
+        "contactEmail": "equickdjsand@gmail.com",
+        "sex": "other"
+    },
+    {
+        "_id": "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+        "name": "Столяров Андрей",
+        "nickname": "Aftermath",
+        "email": "stolyarov.aftermath@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/cc7sg7.svg",
+        "city": "Харьков",
+        "country": "Украина",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["abf001ce-0732-4604-9518-0139de37a1f8"],
+        "styles": [
+            "44a8a93b-5262-4702-98f4-0708c54bcfbf",
+            "814020cd-fe2f-4af6-89b4-9e36e27a8c08"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Aftermath",
+        "instagram": "https://www.instagram.com/Aftermath",
+        "contactEmail": "stolyarov.aftermath@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "a28cd528-ec16-4655-9795-09d15f9e3563",
+        "name": "DJ Hannibalistic",
+        "nickname": "DJ Hannibalistic",
+        "email": "hannibal1993@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/aj7dh6.svg",
+        "city": "Prague",
+        "country": "Czech",
+        "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
+        "daw": [
+            "496ca540-62fb-4c23-a835-542e5d1b7b5c",
+            "dee409a3-17f2-4a11-a624-df59b606f44f"
+        ],
+        "styles": [
+            "60ccf23d-345b-456f-bdac-065f311d5c48",
+            "9fd80e00-1f27-4734-9530-b60c53cb8c59"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Hannibalistic",
+        "instagram": "https://www.instagram.com/DJ_Hannibalistic",
+        "contactEmail": "hannibal1993@gmail.com",
+        "sex": "other"
+    },
+    {
+        "_id": "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+        "name": "DJ Bit",
+        "nickname": "DJ Bit",
+        "email": "bitkakbit@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zx9cv3.svg",
+        "city": "Almaty",
+        "country": "Kazakhstan",
+        "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
+        "daw": [
+            "1f8f56c9-37a3-4377-b083-a897205c03be",
+            "7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969"
+        ],
+        "styles": [
+            "a26dc812-8a5f-466c-8ebc-3606746f27f4",
+            "5e53aa26-7c4a-4574-8d38-31f131d52fb4",
+            "63c1fe98-0490-4ee5-86d7-77025d364bba"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Bit",
+        "instagram": "https://www.instagram.com/DJ_Bit",
+        "contactEmail": "bitkakbit@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "0451b735-1ccf-4c08-8840-260742ca8886",
+        "name": "Edward Roberts",
+        "nickname": "Wish",
+        "email": "wishandjoy@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zz0ll5.svg",
+        "city": "Glasgow",
+        "country": "Scotland",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["5413a951-ba4b-4508-88dd-04dc290ed0e9"],
+        "styles": [
+            "44a8a93b-5262-4702-98f4-0708c54bcfbf",
+            "34a65a16-c408-4691-96d7-e650918ffc78"
+        ],
+        "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Wish",
+        "instagram": "https://www.instagram.com/Wish",
+        "contactEmail": "wishandjoy@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+        "name": "DJ Clarity",
+        "nickname": "DJ Clarity",
+        "email": "claritygonesh@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/ay6fu3.svg",
+        "city": "New Delhi",
+        "country": "India",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": ["1f8f56c9-37a3-4377-b083-a897205c03be"],
+        "styles": [
+            "4a90735d-1155-43f3-aa06-d20629c03101",
+            "a28d0398-4900-472c-84d8-993c85b8e783"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Clarity",
+        "instagram": "https://www.instagram.com/DJ_Clarity",
+        "contactEmail": "claritygonesh@gmail.com",
+        "sex": "female"
+    },
+    {
+        "_id": "786e6046-08ab-41da-9654-24845c475468",
+        "name": "DJ Dimension",
+        "nickname": "DJ Dimension",
+        "email": "dimensiondj2003@yandex.ru",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/ak3vn7.svg",
+        "city": "Владивосток",
+        "country": "Россия",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["abf001ce-0732-4604-9518-0139de37a1f8"],
+        "styles": [
+            "814020cd-fe2f-4af6-89b4-9e36e27a8c08",
+            "5e53aa26-7c4a-4574-8d38-31f131d52fb4"
+        ],
+        "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Dimension",
+        "instagram": "https://www.instagram.com/DJ_Dimension",
+        "contactEmail": "dimensiondj2003@yandex.ru",
+        "sex": "male"
+    },
+    {
+        "_id": "e2366ff4-2d13-4067-bf1b-9b7d9b9b52b8",
+        "name": "Степанов Никита",
+        "nickname": "Carnage",
+        "email": "carnagehallminsk@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vb4xc8.svg",
+        "city": "Минск",
+        "country": "Беларусь",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": [
+            "7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969",
+            "1f8f56c9-37a3-4377-b083-a897205c03be"
+        ],
+        "styles": [
+            "63c1fe98-0490-4ee5-86d7-77025d364bba",
+            "7c278aea-45cd-45f3-abe3-94b7037219fe"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Carnage",
+        "instagram": "https://www.instagram.com/Carnage",
+        "contactEmail": "carnagehallminsk@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "e6da8d20-a305-47e1-b6e0-e37f29a03f4c",
+        "name": "Martha Freeman",
+        "nickname": "Clover",
+        "email": "iamloverclover@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zk9mq5.svg",
+        "city": "Akureyri",
+        "country": "Iceland",
+        "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
+        "daw": ["5413a951-ba4b-4508-88dd-04dc290ed0e9"],
+        "styles": [
+            "60ccf23d-345b-456f-bdac-065f311d5c48",
+            "bbf5ae28-6c46-43ee-8363-d912a504b0ef",
+            "b9ee8531-703f-4167-96b7-864f2ac49c51"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Clover",
+        "instagram": "https://www.instagram.com/Clover",
+        "contactEmail": "iamloverclover@gmail.com",
+        "sex": "female"
+    },
+    {
+        "_id": "1cd231c8-b389-4408-b44a-c44bc913ec84",
+        "name": "DJ Question Mark",
+        "nickname": "DJ Question Mark",
+        "email": "thisquiestiondj@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/aj3lo2.svg",
+        "city": "Valencia",
+        "country": "Venezuela",
+        "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
+        "daw": ["7bd74c3d-96f9-4b5a-9f1f-9c0c96af1969"],
+        "styles": [
+            "adee6749-1f88-4cb8-b6f4-5b0905a3ba46",
+            "5e53aa26-7c4a-4574-8d38-31f131d52fb4",
+            "e4e5e121-9743-49fd-8277-f340249f21dd"
+        ],
+        "workFormat": [
+            "96765671-7a14-4a2f-9aaf-9e9e495b28e4",
+            "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
+        ],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Question_Mark",
+        "instagram": "https://www.instagram.com/Question_Mark",
+        "contactEmail": "thisquiestiondj@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "feb845a3-159d-4e1e-b830-d7f9eec4ca83",
+        "name": "David Fernandez",
+        "nickname": "Phantom",
+        "email": "phantomelectricopera@gmail.com",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/qk8be5.svg",
+        "city": "Madrid",
+        "country": "Spain",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": [
+            "1f8f56c9-37a3-4377-b083-a897205c03be",
+            "28f88340-e447-4e64-af67-8528e2dad926"
+        ],
+        "styles": [
+            "adee6749-1f88-4cb8-b6f4-5b0905a3ba46",
+            "5e53aa26-7c4a-4574-8d38-31f131d52fb4",
+            "e4e5e121-9743-49fd-8277-f340249f21dd"
+        ],
+        "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Phantom",
+        "instagram": "https://www.instagram.com/Phantom",
+        "contactEmail": "phantomelectricopera@gmail.com",
+        "sex": "male"
+    },
+    {
+        "_id": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+        "name": "Филатова София",
+        "nickname": "Momentune",
+        "email": "momentomore@mail.ru",
+        "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/cu2dr6.svg",
+        "city": "Уфа",
+        "country": "Россия",
+        "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
+        "daw": ["1f8f56c9-37a3-4377-b083-a897205c03be"],
+        "styles": [
+            "4a90735d-1155-43f3-aa06-d20629c03101",
+            "a28d0398-4900-472c-84d8-993c85b8e783",
+            "e4e5e121-9743-49fd-8277-f340249f21dd"
+        ],
+        "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
+        "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Momentune",
+        "instagram": "https://www.instagram.com/Momentune",
+        "contactEmail": "momentomore@mail.ru",
+        "sex": "female"
+    }
+]

@@ -29,7 +29,7 @@ const Login = () => {
                                     className="anchor__auth"
                                     onClick={toggleFormType}
                                 >
-                                    Войди в ситему
+                                    Войди в сиcтему
                                 </a>
                             </p>
                         </>

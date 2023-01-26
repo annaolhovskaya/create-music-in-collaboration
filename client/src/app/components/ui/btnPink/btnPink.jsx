@@ -1,14 +1,28 @@
 import React from "react";
 import stylesCSS from "./btnPink.module.css";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const BtnPink = ({ content, onClick }) => {
+const BtnPink = ({ content, type, to, ...rest }) => {
+    if (type === "link") {
+        return (
+            <Link to={to}>
+                <div className={stylesCSS.buttons}>
+                    <button
+                        className={stylesCSS.button + " " + stylesCSS.btn__pink}
+                    >
+                        {content}
+                    </button>
+                </div>
+            </Link>
+        );
+    }
+
     return (
         <div className={stylesCSS.buttons}>
             <button
                 className={stylesCSS.button + " " + stylesCSS.btn__pink}
-                href="#"
-                onClick={onClick}
+                {...rest}
             >
                 {content}
             </button>
@@ -18,6 +32,7 @@ const BtnPink = ({ content, onClick }) => {
 
 BtnPink.propTypes = {
     content: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    type: PropTypes.string,
+    to: PropTypes.string
 };
 export default BtnPink;

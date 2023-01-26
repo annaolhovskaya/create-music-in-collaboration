@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
 const auth = require('../middleware/auth.middleware');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 router.patch('/:userId', auth, async (req, res) => {
   try {
@@ -19,7 +19,7 @@ router.patch('/:userId', auth, async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка. Попробуйте позже.',
+      message: 'На сервере произошла ошибка... Попробуйте позже...',
     });
   }
 });
@@ -30,7 +30,7 @@ router.get('/', auth, async (req, res) => {
     res.status(200).send(list);
   } catch (error) {
     res.status(500).json({
-      message: 'На сервере произошла ошибка. Попробуйте позже.',
+      message: 'На сервере произошла ошибка... Попробуйте позже...',
     });
   }
 });

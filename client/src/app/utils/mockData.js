@@ -4,6 +4,8 @@ import experiences from "../mockData/experiences.json";
 import workformats from "../mockData/workformats.json";
 import styles from "../mockData/styles.json";
 import users from "../mockData/users.json";
+import tracks from "../mockData/tracks.json";
+import albums from "../mockData/albums.json";
 import httpService from "../services/http.service";
 
 export const useMockData = () => {
@@ -24,7 +26,9 @@ export const useMockData = () => {
         experiences.length +
         workformats.length +
         styles.length +
-        users.length;
+        users.length +
+        tracks.length +
+        albums.length;
 
     const incrementCount = () => {
         setCount((prevState) => prevState + 1);
@@ -74,6 +78,16 @@ export const useMockData = () => {
 
             for (const user of users) {
                 await httpService.put("user/" + user._id, user);
+                incrementCount();
+            }
+
+            for (const track of tracks) {
+                await httpService.put("track/" + track._id, track);
+                incrementCount();
+            }
+
+            for (const album of albums) {
+                await httpService.put("album/" + album._id, album);
                 incrementCount();
             }
         } catch (error) {

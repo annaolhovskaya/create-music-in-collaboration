@@ -35,3 +35,28 @@
     display: flex;
     justify-content: space-between;
 }
+
+.search {
+    margin: 10px auto;
+}
+
+.btn__blue__small {
+    display: inline-block;
+    vertical-align: top;
+    padding: 3px 15px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: #e200e6;
+    background: #18ffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn__blue__small:hover {
+    background: #15ecec;
+}

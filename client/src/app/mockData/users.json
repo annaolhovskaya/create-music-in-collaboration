@@ -5,6 +5,7 @@
         "nickname": "Voyage",
         "email": "evs.tim@mail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/df9kb7.svg",
         "city": "Москва",
         "country": "Россия",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -18,6 +19,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Voyage",
+        "instagram": "https://www.instagram.com/Voyage",
+        "contactEmail": "evs.tim@mail.com",
         "sex": "male"
     },
     {
@@ -26,6 +30,7 @@
         "nickname": "Double Trouble",
         "email": "doubletrouble@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vj8df5.svg",
         "city": "Sydney",
         "country": "Australia",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -39,6 +44,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Double_Trouble",
+        "instagram": "https://www.instagram.com/Double_Trouble",
+        "contactEmail": "doubletrouble@gmail.com",
         "sex": "male"
     },
     {
@@ -47,6 +55,7 @@
         "nickname": "Heartbeats",
         "email": "heartzzz@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vb0kd6.svg",
         "city": "Boston",
         "country": "USA",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -57,6 +66,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Heartbeats",
+        "instagram": "https://www.instagram.com/Heartbeats",
+        "contactEmail": "heartzzz@gmail.com",
         "sex": "other"
     },
     {
@@ -65,6 +77,7 @@
         "nickname": "DJ Whistle",
         "email": "super_dj_whistle@yandex.ru",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/dj8cb4.svg",
         "city": "Санкт-Петербург",
         "country": "Россия",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -81,6 +94,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Whistle",
+        "instagram": "https://www.instagram.com/DJ_Whistle",
+        "contactEmail": "super_dj_whistle@yandex.ru",
         "sex": "male"
     },
     {
@@ -89,6 +105,7 @@
         "nickname": "Fluke",
         "email": "fluke.donna@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vj8df5.svg",
         "city": "Amsterdam",
         "country": "Netherlands",
         "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
@@ -99,6 +116,9 @@
         ],
         "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Fluke",
+        "instagram": "https://www.instagram.com/Fluke",
+        "contactEmail": "fluke.donna@gmail.com",
         "sex": "female"
     },
     {
@@ -107,6 +127,7 @@
         "nickname": "DJ Ambit",
         "email": "ambit_dj@mail.ru",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/xk6xb2.svg",
         "city": "Екатеринбург",
         "country": "Россия",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -124,6 +145,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Ambit",
+        "instagram": "https://www.instagram.com/DJ_Ambit",
+        "contactEmail": "ambit_dj@mail.ru",
         "sex": "male"
     },
     {
@@ -132,6 +156,7 @@
         "nickname": "Ink",
         "email": "ink_ink_yana@yandex.ru",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zc7sj4.svg",
         "city": "Казань",
         "country": "Россия",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -142,6 +167,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Ink",
+        "instagram": "https://www.instagram.com/Ink",
+        "contactEmail": "ink_ink_yana@yandex.ru",
         "sex": "female"
     },
     {
@@ -150,6 +178,7 @@
         "nickname": "Omen",
         "email": "omen99@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zl9cb6.svg",
         "city": "Cleveland",
         "country": "USA",
         "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
@@ -163,6 +192,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Omen",
+        "instagram": "https://www.instagram.com/Omen",
+        "contactEmail": "omen99@gmail.com",
         "sex": "male"
     },
     {
@@ -171,6 +203,7 @@
         "nickname": "DJ Quicksand",
         "email": "quickdjsand@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zl9aj7.svg",
         "city": "Edmonton",
         "country": "Canada",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -178,6 +211,9 @@
         "styles": ["7c278aea-45cd-45f3-abe3-94b7037219fe"],
         "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Quicksand",
+        "instagram": "https://www.instagram.com/DJ_Quicksand",
+        "contactEmail": "equickdjsand@gmail.com",
         "sex": "other"
     },
     {
@@ -186,6 +222,7 @@
         "nickname": "Aftermath",
         "email": "stolyarov.aftermath@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/cc7sg7.svg",
         "city": "Харьков",
         "country": "Украина",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -196,6 +233,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Aftermath",
+        "instagram": "https://www.instagram.com/Aftermath",
+        "contactEmail": "stolyarov.aftermath@gmail.com",
         "sex": "male"
     },
     {
@@ -204,6 +244,7 @@
         "nickname": "DJ Hannibalistic",
         "email": "hannibal1993@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/aj7dh6.svg",
         "city": "Prague",
         "country": "Czech",
         "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
@@ -220,6 +261,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Hannibalistic",
+        "instagram": "https://www.instagram.com/DJ_Hannibalistic",
+        "contactEmail": "hannibal1993@gmail.com",
         "sex": "other"
     },
     {
@@ -228,6 +272,7 @@
         "nickname": "DJ Bit",
         "email": "bitkakbit@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zx9cv3.svg",
         "city": "Almaty",
         "country": "Kazakhstan",
         "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
@@ -242,6 +287,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Bit",
+        "instagram": "https://www.instagram.com/DJ_Bit",
+        "contactEmail": "bitkakbit@gmail.com",
         "sex": "male"
     },
     {
@@ -250,6 +298,7 @@
         "nickname": "Wish",
         "email": "wishandjoy@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zz0ll5.svg",
         "city": "Glasgow",
         "country": "Scotland",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -260,6 +309,9 @@
         ],
         "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Wish",
+        "instagram": "https://www.instagram.com/Wish",
+        "contactEmail": "wishandjoy@gmail.com",
         "sex": "male"
     },
     {
@@ -268,6 +320,7 @@
         "nickname": "DJ Clarity",
         "email": "claritygonesh@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/ay6fu3.svg",
         "city": "New Delhi",
         "country": "India",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -281,6 +334,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Clarity",
+        "instagram": "https://www.instagram.com/DJ_Clarity",
+        "contactEmail": "claritygonesh@gmail.com",
         "sex": "female"
     },
     {
@@ -289,6 +345,7 @@
         "nickname": "DJ Dimension",
         "email": "dimensiondj2003@yandex.ru",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/ak3vn7.svg",
         "city": "Владивосток",
         "country": "Россия",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -299,6 +356,9 @@
         ],
         "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/DJ_Dimension",
+        "instagram": "https://www.instagram.com/DJ_Dimension",
+        "contactEmail": "dimensiondj2003@yandex.ru",
         "sex": "male"
     },
     {
@@ -307,6 +367,7 @@
         "nickname": "Carnage",
         "email": "carnagehallminsk@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/vb4xc8.svg",
         "city": "Минск",
         "country": "Беларусь",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -320,6 +381,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Carnage",
+        "instagram": "https://www.instagram.com/Carnage",
+        "contactEmail": "carnagehallminsk@gmail.com",
         "sex": "male"
     },
     {
@@ -328,6 +392,7 @@
         "nickname": "Clover",
         "email": "iamloverclover@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/zk9mq5.svg",
         "city": "Akureyri",
         "country": "Iceland",
         "experience": "c9317dcd-e82d-4cd2-acb2-670557c20bd2",
@@ -339,6 +404,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Clover",
+        "instagram": "https://www.instagram.com/Clover",
+        "contactEmail": "iamloverclover@gmail.com",
         "sex": "female"
     },
     {
@@ -347,6 +415,7 @@
         "nickname": "DJ Question Mark",
         "email": "thisquiestiondj@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/aj3lo2.svg",
         "city": "Valencia",
         "country": "Venezuela",
         "experience": "8c0401d6-d1dc-4691-afa4-4b2fffd4f8dc",
@@ -361,6 +430,9 @@
             "c9317dcd-e82d-4cd2-acb2-670557c20bd2"
         ],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Question_Mark",
+        "instagram": "https://www.instagram.com/Question_Mark",
+        "contactEmail": "thisquiestiondj@gmail.com",
         "sex": "male"
     },
     {
@@ -369,6 +441,7 @@
         "nickname": "Phantom",
         "email": "phantomelectricopera@gmail.com",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/qk8be5.svg",
         "city": "Madrid",
         "country": "Spain",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -383,6 +456,9 @@
         ],
         "workFormat": ["96765671-7a14-4a2f-9aaf-9e9e495b28e4"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Phantom",
+        "instagram": "https://www.instagram.com/Phantom",
+        "contactEmail": "phantomelectricopera@gmail.com",
         "sex": "male"
     },
     {
@@ -391,6 +467,7 @@
         "nickname": "Momentune",
         "email": "momentomore@mail.ru",
         "password": "b2C!9bmE",
+        "avatar": "https://avatars.dicebear.com/api/avataaars/cu2dr6.svg",
         "city": "Уфа",
         "country": "Россия",
         "experience": "c7907ba0-83a7-4930-b6a2-3646e5dc853d",
@@ -402,6 +479,9 @@
         ],
         "workFormat": ["c9317dcd-e82d-4cd2-acb2-670557c20bd2"],
         "soundCloud": "https://soundcloud.com/",
+        "telegram": "https://t.me/Momentune",
+        "instagram": "https://www.instagram.com/Momentune",
+        "contactEmail": "momentomore@mail.ru",
         "sex": "female"
     }
 ]

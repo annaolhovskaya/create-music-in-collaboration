@@ -3,7 +3,7 @@
     height: 200px;
     background-color: #fff;
     border-radius: 50%;
-    margin: 30px auto 10px auto;
+    margin: 20px auto 10px auto;
 }
 
 .user__name {
@@ -30,7 +30,19 @@
 
 .user__info {
     width: 250px;
-    margin: 15px auto 25px auto;
+    margin: 15px auto;
+}
+
+.user__info__contact {
+    width: 250px;
+    margin: 5px auto;
+}
+
+.social__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
 }
 
 .bold__text {

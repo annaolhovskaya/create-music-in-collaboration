@@ -13,13 +13,15 @@ import {
     getWorkformatsLoadingStatus
 } from "../../../store/workformats";
 import { getCurrentUserId, getUsers } from "../../../store/users";
+import TextField from "../../common/form/textField/textField";
 
 const UsersListPage = () => {
-    const pageSize = 7;
+    const pageSize = 6;
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedStyle, setSelectedStyle] = useState();
     const [selectedDaw, setSelectedDaw] = useState();
     const [selectedFormat, setSelectedFormat] = useState();
+    const [searchQuery, setSearchQuery] = useState("");
 
     const users = useSelector(getUsers());
     const currentUserId = useSelector(getCurrentUserId());
@@ -35,22 +37,32 @@ const UsersListPage = () => {
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [selectedStyle, selectedDaw, selectedFormat]);
+    }, [selectedStyle, selectedDaw, selectedFormat, searchQuery]);
 
     const handleStyleSelect = (itemSelect) => {
+        if (searchQuery !== "") setSearchQuery("");
         setSelectedStyle(itemSelect);
     };
 
     const handleDawSelect = (itemSelect) => {
+        if (searchQuery !== "") setSearchQuery("");
         setSelectedDaw(itemSelect);
     };
 
     const handleFormatSelect = (itemSelect) => {
+        if (searchQuery !== "") setSearchQuery("");
         setSelectedFormat(itemSelect);
     };
 
     const handlePageChange = (pageIndex) => {
         setCurrentPage(pageIndex);
+    };
+
+    const handleSearchQuery = (target) => {
+        setSelectedStyle(undefined);
+        setSelectedDaw(undefined);
+        setSelectedFormat(undefined);
+        setSearchQuery(target.value);
     };
 
     const getFilteredUsers = () => {
@@ -76,9 +88,28 @@ const UsersListPage = () => {
         );
     };
 
-    const filteredUsers = getFilteredUsers().filter(
-        (user) => user._id !== currentUserId
-    );
+    function filterUsers(data) {
+        const filteredUsers = searchQuery
+            ? data.filter(
+                  (user) =>
+                      user.name
+                          .toLowerCase()
+                          .indexOf(searchQuery.toLowerCase()) !== -1 ||
+                      user.nickname
+                          .toLowerCase()
+                          .indexOf(searchQuery.toLowerCase()) !== -1
+              )
+            : selectedDaw || selectedFormat || selectedStyle
+            ? getFilteredUsers()
+            : data;
+        return filteredUsers.filter((user) => user._id !== currentUserId);
+    }
+
+    const filteredUsers = filterUsers(users);
+
+    // const filteredUsers = getFilteredUsers().filter(
+    //     (user) => user._id !== currentUserId
+    // );
     const count = filteredUsers.length;
     const userCrop = paginate(filteredUsers, currentPage, pageSize);
 
@@ -117,17 +148,27 @@ const UsersListPage = () => {
                         />
                     )}
                     <button
-                        className="btn btn-sm btn-primary"
+                        className={stylesCSS.btn__blue__small}
                         onClick={clearFilter}
                     >
                         Сбросить фильтры
                     </button>
                 </div>
             </div>
+
             <div className={stylesCSS.all__content}>
+                <div className={stylesCSS.search}>
+                    <TextField
+                        type="text"
+                        placeholder="Поиск по имени..."
+                        name="searchQuery"
+                        onChange={handleSearchQuery}
+                        value={searchQuery}
+                    />
+                </div>
                 {userCrop.map((user) => (
                     <div className={stylesCSS.all__users__items} key={user._id}>
-                        <User user={user} />
+                        <User userId={user._id} />
                         <BtnBlueSmall content="добавить в друзья" />
                     </div>
                 ))}

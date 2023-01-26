@@ -6,7 +6,9 @@ router.use('/experience', require('./experience.routes'));
 router.use('/daw', require('./daw.routes'));
 router.use('/workformat', require('./workFormat.routes'));
 router.use('/style', require('./style.routes'));
+router.use('/album', require('./album.routes'));
 router.use('/user', require('./user.routes'));
 router.use('/comment', require('./comment.routes'));
+router.use('/track', require('./track.routes'));
 
 module.exports = router;

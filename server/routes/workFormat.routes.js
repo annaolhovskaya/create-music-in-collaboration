@@ -1,6 +1,6 @@
 const express = require('express');
 const WorkFormat = require('../models/WorkFormat');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 router.get('/', async (req, res) => {
   try {

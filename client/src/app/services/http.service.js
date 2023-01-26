@@ -61,7 +61,6 @@ http.interceptors.response.use(
             error.response.status < 500;
 
         if (!expectedError) {
-            console.log(error);
             toast.error("Something was wrong. Try it later");
         }
 

@@ -194,7 +194,11 @@ export const getCurrentUserData = () => (state) => {
         : null;
 };
 
-export const getCurrentUserId = () => (state) => state.users.auth.userId;
+export const getCurrentUserId = () => (state) => {
+    if (state.users.auth) {
+        return state.users.auth.userId;
+    }
+};
 
 export const getAuthErrors = () => (state) => state.users.error;
 

@@ -18,6 +18,7 @@ import {
     getExperiencesLoadingStatus
 } from "../../../store/experiences";
 import { getCurrentUserData, updateUser } from "../../../store/users";
+import Loader from "../../common/loader/loader";
 
 const EditUserPage = () => {
     const dispatch = useDispatch();
@@ -166,11 +167,11 @@ const EditUserPage = () => {
     };
 
     return (
-        <div className="container mt-5">
-            <div className="row">
-                <div className="col-md-6 offset-md-3 shadow p-4">
-                    {!isLoading ? (
-                        <>
+        <>
+            {!isLoading ? (
+                <div className="container mt-5">
+                    <div className="row">
+                        <div className="col-md-6 offset-md-3 shadow p-4">
                             <button className={stylesCSS.icon__settings}>
                                 <i
                                     className="bi bi-x-lg"
@@ -280,13 +281,13 @@ const EditUserPage = () => {
                                     Обновить
                                 </button>
                             </form>
-                        </>
-                    ) : (
-                        "Loading..."
-                    )}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            ) : (
+                <Loader />
+            )}
+        </>
     );
 };
 

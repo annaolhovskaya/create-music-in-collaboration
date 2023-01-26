@@ -4,12 +4,29 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/User');
 const { generateUserData } = require('../utils/helpers');
 const tokenService = require('../services/token.service');
-const Token = require('../models/Token');
 const router = express.Router({ mergeParams: true });
 
 router.post('/signUp', [
   check('email', 'Email некорректный').isEmail(),
-  check('password', 'Минимальная длина пароля 8 символов').isLength({ min: 8 }),
+  check('password')
+    .isLength({ min: 8 })
+    .withMessage('Минимальная длина пароля 8 символов')
+    .matches(/\d+/g)
+    .withMessage('Пароль должен содержать хотя бы одну цифру')
+    .matches(/[A-Z]+/g)
+    .withMessage('Пароль должен содержать хотя бы одну заглавную букву')
+    .matches(/[!@#$%^&*]/g)
+    .withMessage(
+      'Пароль должен содержать хотя бы один из специальных символов !@#$%^&*'
+    ),
+  // check('name', 'Обязательно для заполнения').exists(),
+  // check('nikcname', 'Обязательно для заполнения').exists(),
+  // check('city', 'Обязательно для заполнения').exists(),
+  // check('country', 'Обязательно для заполнения').exists(),
+  // check('experience', 'Обязательно для заполнения').exists(),
+  // check('styles', 'Обязательно для заполнения').exists(),
+  // check('daw', 'Обязательно для заполнения').exists(),
+  // check('workFormat', 'Обязательно для заполнения').exists(),
   async (req, res) => {
     try {
       const errors = validationResult(req);
@@ -18,6 +35,7 @@ router.post('/signUp', [
           error: {
             message: 'INVALID_DATA',
             code: 400,
+            errors: errors.array(),
           },
         });
       }
@@ -121,7 +139,7 @@ router.post('/token', async (req, res) => {
       });
     }
 
-    const tokens = await tokenService.generate({ _id: data._id });
+    const tokens = tokenService.generate({ _id: data._id });
     await tokenService.save(data._id, tokens.refreshToken);
 
     res.status(200).send({ ...tokens, userId: data._id });

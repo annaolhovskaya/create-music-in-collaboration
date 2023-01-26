@@ -7,9 +7,12 @@ import WorkFormatList from "../workFormatList/workFormatList";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { getExperienceById } from "../../../store/experiences";
+import { getUserById } from "../../../store/users";
 
-const User = ({ user }) => {
-    const { _id, name, avatar, styles, workFormat, experience } = user;
+const User = ({ userId }) => {
+    const user = useSelector(getUserById(userId));
+    const { _id, name, nickname, avatar, styles, workFormat, experience } =
+        user;
     const exp = useSelector(getExperienceById(experience));
 
     return (
@@ -24,7 +27,9 @@ const User = ({ user }) => {
                         to={`/users/${_id}`}
                         className={stylesCSS.link__nostyle}
                     >
-                        <h3 className={stylesCSS.user__item__name}>{name}</h3>
+                        <h3 className={stylesCSS.user__item__name}>
+                            {name} / {nickname}
+                        </h3>
                     </Link>
                     {exp && (
                         <h5 className={stylesCSS.icon}>
@@ -40,7 +45,7 @@ const User = ({ user }) => {
 };
 
 User.propTypes = {
-    user: PropTypes.object.isRequired
+    userId: PropTypes.string.isRequired
 };
 
 export default User;

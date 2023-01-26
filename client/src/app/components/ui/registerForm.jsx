@@ -26,7 +26,11 @@ const RegisterForm = () => {
         styles: [],
         daw: [],
         workFormat: [],
+        contactEmail: "",
         soundCloud: "",
+
+        telegram: "",
+        instagram: "",
         sex: "male",
         license: false
     });
@@ -63,6 +67,14 @@ const RegisterForm = () => {
                 [true],
                 "Сервис доступен только после подтверждения лицензионного соглашения"
             ),
+        instagram: yup.string().url("Введите корректный URL(http://....)"),
+        telegram: yup.string().url("Введите корректный URL(http://....)"),
+
+        soundCloud: yup.string().url("Введите корректный URL(http://....)"),
+        contactEmail: yup
+            .string()
+            .required("email обязателен для заполнения")
+            .email("email введен не корректо"),
         workFormat: yup
             .array()
             .test(
@@ -114,63 +126,11 @@ const RegisterForm = () => {
             .email("email введен не корректо")
     });
 
-    // const validatorConfig = {
-    //     email: {
-    //         isRequired: {
-    //             message: "email обязателен для заполнения"
-    //         },
-    //         isEmail: {
-    //             message: "email введен не корректо"
-    //         }
-    //     },
-    //     password: {
-    //         isRequired: {
-    //             message: "Пароль обязателен для заполнения"
-    //         },
-    //         isNoSpace: {
-    //             message: "Пароль не может содержать пробелы"
-    //         },
-    //         isLanguage: {
-    //             message:
-    //                 "Пароль может содержать буквы только латинского алфавита"
-    //         },
-    //         isCapital: {
-    //             message: "Пароль должен содержать хотя бы одну заглавную букву"
-    //         },
-    //         isContainDigit: {
-    //             message: "Пароль должен содержать хотя бы одну цифру"
-    //         },
-    //         isSpecialSymbol: {
-    //             message:
-    //                 "Пароль должен содержать хотя бы один из специальных символов !@#$%^&*"
-    //         },
-    //         min: {
-    //             message: "Пароль должен состоять минимум из 8 символов",
-    //             value: 8
-    //         }
-    //     },
-    //     experience: {
-    //         isRequired: {
-    //             message:
-    //                 "Обязательно укажите ваш опыт создания электронной музыки"
-    //         }
-    //     },
-    //     license: {
-    //         isRequired: {
-    //             message:
-    //                 "Сервис доступен только после подтверждения лицензионного соглашения"
-    //         }
-    //     }
-    // };
-
     const validate = () => {
-        // const errors = validator(data, validatorConfig);
         validateSchema
             .validate(data)
             .then(() => setErrors({}))
             .catch((err) => setErrors({ [err.path]: err.message }));
-
-        // setErrors(errors);
 
         return Object.keys(errors).length === 0;
     };
@@ -183,21 +143,6 @@ const RegisterForm = () => {
             [target.name]: target.value
         }));
     };
-
-    // function getEntities(elements, entities) {
-    //     const entitiesArray = [];
-    //     for (const elem of elements) {
-    //         for (const entity in entities) {
-    //             if (elem.value === entities[entity].value) {
-    //                 entitiesArray.push({
-    //                     _id: entities[entity].value,
-    //                     name: entities[entity].label
-    //                 });
-    //             }
-    //         }
-    //     }
-    //     return entitiesArray;
-    // }
 
     function getArrayIds(data) {
         return data.map((item) => item.value);
@@ -294,9 +239,28 @@ const RegisterForm = () => {
                 error={errors.workFormat}
             />
             <TextField
+                label="Контактный Email"
+                name="contactEmail"
+                value={data.contactEmail}
+                error={errors.contactEmail}
+                onChange={handleChange}
+            />
+            <TextField
                 label="Ссылка на аккаунт SoundCloud"
                 name="soundCloud"
                 value={data.soundCloud}
+                onChange={handleChange}
+            />
+            <TextField
+                label="Ссылка на аккаунт Telegram"
+                name="telegram"
+                value={data.telegram}
+                onChange={handleChange}
+            />
+            <TextField
+                label="Ссылка на аккаунт Instagram"
+                name="instagram"
+                value={data.instagram}
                 onChange={handleChange}
             />
             <RadioField
@@ -323,7 +287,7 @@ const RegisterForm = () => {
                 disabled={!isValid}
                 className="btn btn-primary w-100 mx-auto my-3"
             >
-                Submit
+                Зарегистрироваться
             </button>
         </form>
     );

@@ -1,24 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import stylesCSS from "./modal.module.css";
 import PropTypes from "prop-types";
+import { useParams } from "react-router-dom";
 
-const Modal = ({ active, setActive, children }) => {
-    const handleActive = () => {
-        setActive((prevState) => !prevState);
-    };
+const Modal = ({ type, active, setActive, currentUserId, children }) => {
+    const { userId } = useParams();
+
+    useEffect(() => {
+        if (type === "offer" && currentUserId !== userId) {
+            setActive(false);
+        }
+    }, [currentUserId, userId]);
 
     return (
-        <div className={active ? stylesCSS.modal__active : stylesCSS.modal}>
+        <div
+            className={stylesCSS.modal + (active ? " " + stylesCSS.active : "")}
+        >
             <div
                 className={
-                    active
-                        ? stylesCSS.modal__content__active
-                        : stylesCSS.modal__content
+                    stylesCSS.modal__content +
+                    (active ? " " + stylesCSS.active : "")
                 }
                 onClick={(e) => e.stopPropagation()}
             >
                 <button className={stylesCSS.icon__settings}>
-                    <i className="bi bi-x-lg" onClick={handleActive}></i>
+                    <i
+                        className="bi bi-x-lg"
+                        onClick={() => setActive((prevState) => !prevState)}
+                    ></i>
                 </button>
                 {children}
             </div>
@@ -27,8 +36,10 @@ const Modal = ({ active, setActive, children }) => {
 };
 
 Modal.propTypes = {
+    type: PropTypes.string,
     active: PropTypes.bool,
     setActive: PropTypes.func,
+    currentUserId: PropTypes.string,
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node

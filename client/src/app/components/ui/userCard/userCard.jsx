@@ -13,15 +13,18 @@ import { getStylesByIds } from "../../../store/styles";
 import { getDawsByIds } from "../../../store/daws";
 import { getExperienceById } from "../../../store/experiences";
 import { getCurrentUserId } from "../../../store/users";
+import {
+    getTracksByUserId,
+    getTracksLoadingStatus
+} from "../../../store/tracks";
+import TelegramIcon from "../../common/socialIcons/telegramIcon/telegramIcon";
+import InstagramIcon from "../../common/socialIcons/instagramIcon/instagramIcon";
 
 const UserCard = ({ user, setActive }) => {
     const history = useHistory();
+
     const handleClick = () => {
         history.push(history.location.pathname + "/edit");
-    };
-
-    const handleActive = () => {
-        setActive((prevState) => !prevState);
     };
 
     const currentUserId = useSelector(getCurrentUserId());
@@ -30,6 +33,20 @@ const UserCard = ({ user, setActive }) => {
 
     const daw = useSelector(getDawsByIds(user.daw));
     const styles = useSelector(getStylesByIds(user.styles));
+
+    const tracksUser = useSelector(getTracksByUserId(user._id));
+    const isLoading = useSelector(getTracksLoadingStatus());
+    const arrayOffer = [];
+    if (!isLoading) {
+        if (tracksUser.length > 0) {
+            for (let i = 0; i < tracksUser.length; i++) {
+                tracksUser.forEach((item) => arrayOffer.push(item.offer[i]));
+            }
+        }
+    }
+    const isOfferAccepted = arrayOffer.some(
+        (item) => item.userId === currentUserId && item.accepted
+    );
 
     return (
         <ContentWrapper>
@@ -74,20 +91,46 @@ const UserCard = ({ user, setActive }) => {
             {user.soundCloud && (
                 <div className={stylesCSS.container__buttons}>
                     <a href={user.soundCloud} target="blank">
-                        <BtnPink content="мой профиль soundcloud" />
+                        <BtnPink content="профиль soundcloud" />
                     </a>
                 </div>
             )}
-            <div className={stylesCSS.container__buttons}>
-                <div className={stylesCSS.buttons__raw}>
-                    <BtnBlue content="добавить в друзья" />
-                    <BtnBlue content="написать мне" />
+
+            {(isOfferAccepted || user._id === currentUserId) && (
+                <div className={stylesCSS.user__info__contact}>
+                    <RawInfoUserCard title="e-mail" label={user.contactEmail} />
+                    <div className={stylesCSS.social__icons}>
+                        {user.telegram !== "" && (
+                            <TelegramIcon
+                                type="link"
+                                href={user.telegram}
+                                style={{
+                                    fontSize: "45px",
+                                    cursor: "pointer",
+                                    color: "#00dbde"
+                                }}
+                            />
+                        )}
+                        {user.instagram !== "" && (
+                            <InstagramIcon
+                                type="link"
+                                href={user.instagram}
+                                style={{
+                                    fontSize: "45px",
+                                    cursor: "pointer",
+                                    color: "#00dbde"
+                                }}
+                            />
+                        )}
+                    </div>
                 </div>
-            </div>
-            <BtnPink content="добавить демо-запись" onClick={handleActive} />
-            {/* <div onClick={handleClick}>
-            <BtnPink content="все пользователи" />
-        </div> */}
+            )}
+            {user._id === currentUserId && (
+                <BtnBlue
+                    content="добавить демо-запись"
+                    onClick={() => setActive((prevState) => !prevState)}
+                />
+            )}
         </ContentWrapper>
     );
 };

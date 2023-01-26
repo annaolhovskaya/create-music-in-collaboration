@@ -1,0 +1,770 @@
+[
+    {
+        "_id": "08ad66f3-c7ad-414d-9314-45eb259569e6",
+        "userId": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+        "author": "Voyage",
+        "title": "Stay",
+        "cover": "https://picsum.photos/id/118/49/49",
+        "link": "Amonita-Stay.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+                "accepted": false
+            },
+            {
+                "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+            "bfadad10-545c-4956-b285-666f2d1ceb84"
+        ]
+    },
+    {
+        "_id": "9a02889e-e60a-4e12-9f13-faec6dd1c9d4",
+        "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+        "author": "Double Trouble",
+        "title": "Silenced Argy",
+        "cover": "https://picsum.photos/id/100/49/49",
+        "link": "CamelPhat-Silenced Argy.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+                "accepted": false
+            },
+            {
+                "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8"
+        ]
+    },
+    {
+        "_id": "e954dd1f-c1a1-409f-b336-367f562e9412",
+        "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+        "author": "Heartbeats",
+        "title": "Turning Away",
+        "cover": "https://picsum.photos/id/107/49/49",
+        "link": "Cristoph-Turning Away.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "786e6046-08ab-41da-9654-24845c475468",
+                "accepted": false
+            },
+            {
+                "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e"
+        ]
+    },
+    {
+        "_id": "8e734daf-7044-4f9e-82c7-ce4b8cd0baa0",
+        "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+        "author": "DJ Whistle",
+        "title": "The Heights Garden State",
+        "cover": "https://picsum.photos/id/167/49/49",
+        "link": "David Rossi-The Heights Garden State.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+                "accepted": false
+            },
+            {
+                "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "bfadad10-545c-4956-b285-666f2d1ceb84",
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9"
+        ]
+    },
+    {
+        "_id": "0ceb71cd-3211-450e-a4ee-bdf7d178b2a5",
+        "userId": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+        "author": "Fluke",
+        "title": "Espeleteia",
+        "cover": "https://picsum.photos/id/194/49/49",
+        "link": "Deviu-Espeleteia.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+                "accepted": false
+            },
+            {
+                "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e"
+        ]
+    },
+    {
+        "_id": "532b17f7-8516-4256-8a5d-4f4ddd85a43b",
+        "userId": "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+        "author": "DJ Ambit",
+        "title": "True",
+        "cover": "https://picsum.photos/id/161/49/49",
+        "link": "Double Touch-True.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+                "accepted": false
+            },
+            {
+                "userId": "bfadad10-545c-4956-b285-666f2d1ceb84",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "bfadad10-545c-4956-b285-666f2d1ceb84",
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf"
+        ]
+    },
+    {
+        "_id": "c69a2efb-4695-4b39-822d-9bbaf9b857ec",
+        "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+        "author": "Ink",
+        "title": "Middle Earth",
+        "cover": "https://picsum.photos/id/125/49/49",
+        "link": "Dowden-Middle Earth.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "a28cd528-ec16-4655-9795-09d15f9e3563",
+                "accepted": false
+            },
+            {
+                "userId": "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "0451b735-1ccf-4c08-8840-260742ca8886",
+            "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+            "2e66ea64-ad02-4324-8334-367ac1ab3fd3"
+        ]
+    },
+    {
+        "_id": "1526d4ca-aaea-422c-b9bc-6af5a48a7968",
+        "userId": "bfadad10-545c-4956-b285-666f2d1ceb84",
+        "author": "Omen",
+        "title": "Loving You",
+        "cover": "https://picsum.photos/id/137/49/49",
+        "link": "DSF-Loving You.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "feb845a3-159d-4e1e-b830-d7f9eec4ca83",
+                "accepted": false
+            },
+            {
+                "userId": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+            "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+            "1641dfa0-0ff6-4920-8e47-a83390503deb"
+        ]
+    },
+    {
+        "_id": "e16880e2-4f18-49f8-9128-5900ba9d62be",
+        "userId": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+        "author": "DJ Quicksand",
+        "title": "Tell Me About it",
+        "cover": "https://picsum.photos/id/104/49/49",
+        "link": "DSF-Tell Me About it.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+                "accepted": false
+            },
+            {
+                "userId": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9"
+        ]
+    },
+    {
+        "_id": "42eee18a-45fb-4dea-a4fc-dc6b203632ae",
+        "userId": "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+        "author": "Aftermath",
+        "title": "Submerge",
+        "cover": "https://picsum.photos/id/182/49/49",
+        "link": "Essco-Submerge.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "bfadad10-545c-4956-b285-666f2d1ceb84",
+                "accepted": false
+            },
+            {
+                "userId": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "a28cd528-ec16-4655-9795-09d15f9e3563",
+            "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+            "0451b735-1ccf-4c08-8840-260742ca8886"
+        ]
+    },
+    {
+        "_id": "4bf3a435-1529-4d7d-9685-dde387cb4ba6",
+        "userId": "a28cd528-ec16-4655-9795-09d15f9e3563",
+        "author": "DJ Hannibalistic",
+        "title": "Peace Pill",
+        "cover": "https://picsum.photos/id/169/49/49",
+        "link": "Fabaria-Peace Pill.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+                "accepted": false
+            },
+            {
+                "userId": "786e6046-08ab-41da-9654-24845c475468",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "e2366ff4-2d13-4067-bf1b-9b7d9b9b52b8",
+            "e6da8d20-a305-47e1-b6e0-e37f29a03f4c",
+            "1cd231c8-b389-4408-b44a-c44bc913ec84"
+        ]
+    },
+    {
+        "_id": "81dacd5d-7688-4b1e-81c8-1b51acc69721",
+        "userId": "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+        "author": "DJ Bit",
+        "title": "The Color of Your Eyes Amulanga",
+        "cover": "https://picsum.photos/id/119/49/49",
+        "link": "Fernando Ferreyra-The Color of Your Eyes Amulanga.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "feb845a3-159d-4e1e-b830-d7f9eec4ca83",
+                "accepted": false
+            },
+            {
+                "userId": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+            "1641dfa0-0ff6-4920-8e47-a83390503deb",
+            "452deeb3-c91d-46e9-a1f1-ac0a6ead3820"
+        ]
+    },
+    {
+        "_id": "4a9b8115-4393-46cd-877a-0238f4d9ead8",
+        "userId": "0451b735-1ccf-4c08-8840-260742ca8886",
+        "author": "Wish",
+        "title": "Alive",
+        "cover": "https://picsum.photos/id/121/49/49",
+        "link": "Frank Klassen-Alive.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+                "accepted": false
+            },
+            {
+                "userId": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+            "bfadad10-545c-4956-b285-666f2d1ceb84"
+        ]
+    },
+    {
+        "_id": "15f216ce-8b16-4feb-ac7a-beea7faafa31",
+        "userId": "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+        "author": "DJ Clarity",
+        "title": "Negev",
+        "cover": "https://picsum.photos/id/129/49/49",
+        "link": "Golan Zocher-Negev.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+                "accepted": false
+            },
+            {
+                "userId": "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+            "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8"
+        ]
+    },
+    {
+        "_id": "93af70d1-1147-4982-ad8a-844c685315a6",
+        "userId": "786e6046-08ab-41da-9654-24845c475468",
+        "author": "DJ Dimension",
+        "title": "Lullaby",
+        "cover": "https://picsum.photos/id/139/49/49",
+        "link": "Julia Gherber-Lullaby.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "a28cd528-ec16-4655-9795-09d15f9e3563",
+                "accepted": false
+            },
+            {
+                "userId": "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "a28cd528-ec16-4655-9795-09d15f9e3563",
+            "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+            "0451b735-1ccf-4c08-8840-260742ca8886"
+        ]
+    },
+    {
+        "_id": "cc01c1f5-d8c0-4b8d-8111-498fffb56c0b",
+        "userId": "e2366ff4-2d13-4067-bf1b-9b7d9b9b52b8",
+        "author": "Carnage",
+        "title": "Odyssey",
+        "cover": "https://picsum.photos/id/133/49/49",
+        "link": "Kamilo_Sanclemente-Odyssey.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+                "accepted": false
+            },
+            {
+                "userId": "786e6046-08ab-41da-9654-24845c475468",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+            "786e6046-08ab-41da-9654-24845c475468",
+            "e6da8d20-a305-47e1-b6e0-e37f29a03f4c"
+        ]
+    },
+    {
+        "_id": "b5427946-6acd-4a81-9e86-3246a7937871",
+        "userId": "e6da8d20-a305-47e1-b6e0-e37f29a03f4c",
+        "author": "Clover",
+        "title": "Raam Krama",
+        "cover": "https://picsum.photos/id/199/49/49",
+        "link": "KAZKO-Raam Krama.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "e2366ff4-2d13-4067-bf1b-9b7d9b9b52b8",
+                "accepted": false
+            },
+            {
+                "userId": "1cd231c8-b389-4408-b44a-c44bc913ec84",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "1cd231c8-b389-4408-b44a-c44bc913ec84",
+            "feb845a3-159d-4e1e-b830-d7f9eec4ca83",
+            "9dc9013b-638c-4356-a5a0-937a05d7f4df"
+        ]
+    },
+    {
+        "_id": "1bc4f866-8956-4a29-bb0e-7ba15f09a127",
+        "userId": "bfadad10-545c-4956-b285-666f2d1ceb84",
+        "author": "Omen",
+        "title": "Little Things",
+        "cover": "https://picsum.photos/id/180/49/49",
+        "link": "Mass Digital-Little Things.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+                "accepted": false
+            },
+            {
+                "userId": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+            "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+            "1641dfa0-0ff6-4920-8e47-a83390503deb"
+        ]
+    },
+    {
+        "_id": "102fcff7-7e02-40c5-8d77-37855f1d9e7d",
+        "userId": "1cd231c8-b389-4408-b44a-c44bc913ec84",
+        "author": "DJ Question Mark",
+        "title": "Lux Aeterna",
+        "cover": "https://picsum.photos/id/152/49/49",
+        "link": "Nick Muir-Lux Aeterna.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+                "accepted": false
+            },
+            {
+                "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762"
+        ]
+    },
+    {
+        "_id": "9b2c0de6-860d-41c2-833f-5e884c4a0092",
+        "userId": "feb845a3-159d-4e1e-b830-d7f9eec4ca83",
+        "author": "Phantom",
+        "title": "I Found Myself In You",
+        "cover": "https://picsum.photos/id/166/49/49",
+        "link": "Qualysto-I Found Myself In You.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+                "accepted": false
+            },
+            {
+                "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+            "bfadad10-545c-4956-b285-666f2d1ceb84"
+        ]
+    },
+    {
+        "_id": "dd84775a-c4aa-4515-b366-845545ae7853",
+        "userId": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+        "author": "Momentune",
+        "title": "Anguola",
+        "cover": "https://picsum.photos/id/106/49/49",
+        "link": "Ranta-Anguola.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "bfadad10-545c-4956-b285-666f2d1ceb84",
+                "accepted": false
+            },
+            {
+                "userId": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+            "a28cd528-ec16-4655-9795-09d15f9e3563"
+        ]
+    },
+    {
+        "_id": "718768e9-7a5c-42c7-9e9e-18babe9ac07f",
+        "userId": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+        "author": "Voyage",
+        "title": "Ciel",
+        "cover": "https://picsum.photos/id/130/49/49",
+        "link": "Redoblue-Ciel.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+                "accepted": true
+            },
+            {
+                "userId": "0451b735-1ccf-4c08-8840-260742ca8886",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "3936b91c-aec5-4b51-b4bf-32036ca8e26f",
+            "0451b735-1ccf-4c08-8840-260742ca8886",
+            "2e66ea64-ad02-4324-8334-367ac1ab3fd3"
+        ]
+    },
+    {
+        "_id": "dda334fc-c9fd-40fe-9ae1-2a934abf1b07",
+        "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+        "author": "Double Trouble",
+        "title": "Cosmic Spirals",
+        "cover": "https://picsum.photos/id/145/49/49",
+        "link": "Revival Agents-Cosmic Spirals.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+                "accepted": false
+            },
+            {
+                "userId": "786e6046-08ab-41da-9654-24845c475468",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "2e66ea64-ad02-4324-8334-367ac1ab3fd3",
+            "786e6046-08ab-41da-9654-24845c475468",
+            "e2366ff4-2d13-4067-bf1b-9b7d9b9b52b8"
+        ]
+    },
+    {
+        "_id": "0c168f1c-47db-45ee-9665-e644a2beb61b",
+        "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+        "author": "Heartbeats",
+        "title": "Obsession",
+        "cover": "https://picsum.photos/id/149/49/49",
+        "link": "Servando-Obsession.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+                "accepted": true
+            },
+            {
+                "userId": "1cd231c8-b389-4408-b44a-c44bc913ec84",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "e6da8d20-a305-47e1-b6e0-e37f29a03f4c",
+            "1cd231c8-b389-4408-b44a-c44bc913ec84",
+            "feb845a3-159d-4e1e-b830-d7f9eec4ca83"
+        ]
+    },
+    {
+        "_id": "8b974ddd-cb12-4f40-a780-f377371cc0f7",
+        "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+        "author": "DJ Whistle",
+        "title": "Polybomba",
+        "cover": "https://picsum.photos/id/159/49/49",
+        "link": "Spencer Brown-Polybomba.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+                "accepted": false
+            },
+            {
+                "userId": "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "9dc9013b-638c-4356-a5a0-937a05d7f4df",
+            "0a4c0c4b-6e22-4d98-ae0f-e953c860e49b",
+            "1641dfa0-0ff6-4920-8e47-a83390503deb"
+        ]
+    },
+    {
+        "_id": "a1cb4409-664c-4811-90fe-0339db52f6cb",
+        "userId": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+        "author": "Donna Stevens",
+        "title": "Orchid",
+        "cover": "https://picsum.photos/id/160/49/49",
+        "link": "Tigerblind-Orchid.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+                "accepted": false
+            },
+            {
+                "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e"
+        ]
+    },
+    {
+        "_id": "408c0110-06c1-4c46-874c-24e01b61c1b2",
+        "userId": "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e",
+        "author": "DJ Ambit",
+        "title": "Pipe Dreams",
+        "cover": "https://picsum.photos/id/135/49/49",
+        "link": "Will Atkinson-Pipe Dreams.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+                "accepted": false
+            },
+            {
+                "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762",
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+            "bfadad10-545c-4956-b285-666f2d1ceb84"
+        ]
+    },
+    {
+        "_id": "30e07864-5bca-488d-82e8-5cbbfffc1ee1",
+        "userId": "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+        "author": "Ink",
+        "title": "Todo Homem",
+        "cover": "https://picsum.photos/id/109/49/49",
+        "link": "Zeca Veloso-Todo Homem.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+                "accepted": false
+            },
+            {
+                "userId": "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+            "a28cd528-ec16-4655-9795-09d15f9e3563"
+        ]
+    },
+    {
+        "_id": "0162e6f1-8635-4412-8fe9-97efb3f569a1",
+        "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+        "author": "Anna Olhovskaya",
+        "title": "Get On",
+        "cover": "https://picsum.photos/id/160/49/49",
+        "link": "ANUQRAM-Get On.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "7BZfpZ1RoTaLNFCw9jnwpn7Ljvz1",
+                "accepted": false
+            },
+            {
+                "userId": "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "dd4b71a3-8334-4100-bcf9-e1e5060295c8",
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+            "a28cd528-ec16-4655-9795-09d15f9e3563"
+        ]
+    },
+    {
+        "_id": "6eb262e8-c3cf-4519-ada1-aca7e66aa9081",
+        "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+        "author": "Anna Olhovskaya",
+        "title": "The Mask",
+        "cover": "https://picsum.photos/id/140/49/49",
+        "link": "Dastan-The Mask.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "7BZfpZ1RoTaLNFCw9jnwpn7Ljvz1",
+                "accepted": false
+            },
+            {
+                "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762"
+        ]
+    },
+    {
+        "_id": "61c2bb83-ceeb-4c43-aac3-9cab35c47cdf",
+        "userId": "7BZfpZ1RoTaLNFCw9jnwpn7Ljvz1",
+        "author": "IVN",
+        "title": "Nerves of Love",
+        "cover": "https://picsum.photos/id/154/49/49",
+        "link": "Cocho-Nerves of Love.mp3",
+        "album": "417696b8-188f-4c3a-a7d6-6ac7ec170559",
+        "offer": [
+            {
+                "userId": "452deeb3-c91d-46e9-a1f1-ac0a6ead3820",
+                "accepted": false
+            },
+            {
+                "userId": "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "1641dfa0-0ff6-4920-8e47-a83390503deb",
+            "8445f3fb-d2d1-481f-a9d0-01fdcc83a1bf",
+            "ff3cee42-88e8-46e1-9a87-492ca34d2762"
+        ]
+    },
+    {
+        "_id": "1fe99a86-c43f-4db4-aa37-2fd225aa3935",
+        "userId": "7BZfpZ1RoTaLNFCw9jnwpn7Ljvz1",
+        "author": "IVN",
+        "title": "Orbit",
+        "cover": "https://picsum.photos/id/197/49/49",
+        "link": "Iago Caetano-Orbit.mp3",
+        "album": "fa13e09a-649f-429d-9aa3-8f0ce8ebed9a",
+        "offer": [
+            {
+                "userId": "XybpL9hPqHWB2rJ63A7H87GPFPo1",
+                "accepted": false
+            },
+            {
+                "userId": "1641dfa0-0ff6-4920-8e47-a83390503deb",
+                "accepted": false
+            }
+        ],
+        "bookmarkId": [
+            "1b290b37-af77-419d-9d58-a1ed58a24ce9",
+            "646c4b93-5fdd-40e4-9d2f-df688b164e9e",
+            "dd758ac8-9d05-4bc5-bc98-5a4084bd8b7e"
+        ]
+    }
+]

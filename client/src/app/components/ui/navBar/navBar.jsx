@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.png";
 import { getIsLoggedIn } from "../../../store/users";
 import NavProfile from "../navProfile/navProfile";
 import stylesCSS from "./navBar.module.css";
@@ -17,7 +16,7 @@ const NavBar = () => {
                         <Link to="/main">
                             <img
                                 className={stylesCSS.logo__img}
-                                src={logo}
+                                src={process.env.PUBLIC_URL + "/img/logo.png"}
                                 alt=""
                             />
                             <p>create music in collaboration</p>
@@ -34,7 +33,7 @@ const NavBar = () => {
                             >
                                 коллаборация
                             </Link>
-                            <Link className={stylesCSS.nav__link} to="/remix">
+                            <Link className={stylesCSS.nav__link} to="/remixes">
                                 ремиксы
                             </Link>
                         </nav>

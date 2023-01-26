@@ -1,16 +1,25 @@
 import React from "react";
-import { randomNumber } from "../../../utils/randomNumber";
 import stylesCSS from "./trackCover.module.css";
+import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { setCurrentTrack } from "../../../store/tracks";
 
-const TrackCover = () => {
+const TrackCover = ({ id, cover, albumId }) => {
+    const dispatch = useDispatch();
+    const handleClick = () => {
+        dispatch(setCurrentTrack(id, albumId));
+    };
     return (
-        <div className={stylesCSS.track__cover}>
-            <img
-                src={`https://picsum.photos/id/${randomNumber(1, 200)}/49/49`}
-                className={stylesCSS.track__cover}
-            />
+        <div className={stylesCSS.track__cover} onClick={handleClick}>
+            <img src={cover} className={stylesCSS.track__cover} />
         </div>
     );
 };
 
-export default TrackCover;
+TrackCover.propTypes = {
+    id: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
+    albumId: PropTypes.string.isRequired
+};
+
+export default React.memo(TrackCover);

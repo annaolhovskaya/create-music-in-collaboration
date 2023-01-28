@@ -9,7 +9,7 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 15px 10px 0;
+    margin-right: 15px;
 }
 
 .track__list__block {

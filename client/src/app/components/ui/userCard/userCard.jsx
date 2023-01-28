@@ -36,17 +36,35 @@ const UserCard = ({ user, setActive }) => {
 
     const tracksUser = useSelector(getTracksByUserId(user._id));
     const isLoading = useSelector(getTracksLoadingStatus());
-    const arrayOffer = [];
-    if (!isLoading) {
-        if (tracksUser.length > 0) {
-            for (let i = 0; i < tracksUser.length; i++) {
-                tracksUser.forEach((item) => arrayOffer.push(item.offer[i]));
+
+    function getOfferAccepted(tracksUser) {
+        if (user._id !== currentUserId) {
+            const arrayOffer = [];
+            if (!isLoading) {
+                if (tracksUser.length > 0) {
+                    for (let i = 0; i < tracksUser.length; i++) {
+                        tracksUser.forEach((item) =>
+                            item.offer.length > 0
+                                ? arrayOffer.push(item.offer[i])
+                                : null
+                        );
+                    }
+                }
             }
+
+            const isOfferAccepted =
+                arrayOffer.length > 0 && user.offer
+                    ? arrayOffer.some((item) => {
+                          return item.userId === currentUserId && item.accepted;
+                      })
+                    : false;
+
+            return isOfferAccepted;
         }
+        return false;
     }
-    const isOfferAccepted = arrayOffer.some(
-        (item) => item.userId === currentUserId && item.accepted
-    );
+
+    const isOfferAccepted = getOfferAccepted(tracksUser);
 
     return (
         <ContentWrapper>
@@ -96,7 +114,7 @@ const UserCard = ({ user, setActive }) => {
                 </div>
             )}
 
-            {(isOfferAccepted || user._id === currentUserId) && (
+            {(user._id === currentUserId || isOfferAccepted) && (
                 <div className={stylesCSS.user__info__contact}>
                     <RawInfoUserCard title="e-mail" label={user.contactEmail} />
                     <div className={stylesCSS.social__icons}>

@@ -40,6 +40,7 @@ const AddCommentForm = ({ onSubmit }) => {
         const isValid = validate();
         if (!isValid) return;
         onSubmit(data);
+        console.log("dataComment", data);
         clearForm();
     };
 

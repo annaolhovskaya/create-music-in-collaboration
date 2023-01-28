@@ -52,7 +52,7 @@ const TrackList = ({ data }) => {
             />
             {data &&
                 dataCrop.map((item) => (
-                    <div className={stylesCSS.all_tracks} key={item.title}>
+                    <div className={stylesCSS.all_tracks} key={item._id}>
                         <div className={stylesCSS.track__list__block}>
                             <TrackCover
                                 cover={item.cover}

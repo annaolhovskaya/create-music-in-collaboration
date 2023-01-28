@@ -19,6 +19,9 @@ import stylesCSS from "./footer.module.css";
 import PropTypes from "prop-types";
 import Offer from "../offer/offer";
 
+const SERVER_URI = "http://localhost:8080/";
+const TRACKS_DIR_PATH = "tracks/";
+
 const Footer = () => {
     const dispatch = useDispatch();
     const isLoading = useSelector(getTracksLoadingStatus());
@@ -42,6 +45,7 @@ const Footer = () => {
     const handleEnd = () => {
         dispatch(setCurrentTrack(nextId, albumId));
     };
+
     if (!isLoading) {
         return (
             <div className={stylesCSS.container_custom}>
@@ -66,12 +70,8 @@ const Footer = () => {
                     </div>
 
                     <AudioPlayer
-                        volume="0.2"
-                        src={
-                            process.env.PUBLIC_URL +
-                            "/audio/" +
-                            currentTrack.link
-                        }
+                        volume="0.4"
+                        src={SERVER_URI + TRACKS_DIR_PATH + currentTrack.link}
                         showSkipControls={true}
                         showJumpControls={false}
                         autoPlayAfterSrcChange={true}

@@ -35,6 +35,7 @@ const Comment = ({
                                         {user && user.name}
                                     </Link>
                                     <span className="normal">
+                                        {" "}
                                         - {displayDate(created)}
                                     </span>
                                 </h4>

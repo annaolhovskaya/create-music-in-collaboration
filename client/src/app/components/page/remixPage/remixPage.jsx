@@ -12,7 +12,6 @@ const NAME = "remixes";
 
 const RemixPage = () => {
     const albumId = useSelector(getAlbumIdByName(NAME));
-    console.log("albumId", albumId);
     const remixes = useSelector(getTracksByAlbumId(albumId));
     const isLoading = useSelector(getTracksLoadingStatus());
 

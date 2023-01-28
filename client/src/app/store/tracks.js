@@ -1,8 +1,7 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 import trackService from "../services/track.service";
-import _ from "lodash";
-import { getCurrentUserId } from "./users";
+// import _ from "lodash";
 
 const tracksSlice = createSlice({
     name: "tracks",
@@ -44,7 +43,7 @@ const tracksSlice = createSlice({
                 (el) => el._id !== action.payload
             );
         },
-        trackUploaded(state, action) {
+        trackNoteCreated(state, action) {
             if (!Array.isArray(state.entities)) {
                 state.entities = [];
             }
@@ -61,7 +60,7 @@ const {
     trackSetted,
     newDataSetted,
     trackRemoved,
-    trackUploaded
+    trackNoteCreated
 } = actions;
 
 const trackSetRequested = createAction("tracks/trackSetRequested");
@@ -85,35 +84,22 @@ export const loadTracksList = () => async (dispatch) => {
     }
 };
 
-export const uploadTrack = (payload) => async (dispatch, getState) => {
-    dispatch(uploadTrackRequested);
-    console.log("payload", payload);
-    const track = {
-        ...payload,
-        _id: nanoid(),
-        userId: getCurrentUserId()(getState()),
-        cover: `https://picsum.photos/id/${_.random(1, 200)}/49/49`,
-        offer: [],
-        bookmarkId: []
+export const uploadTrack =
+    ({ formData, trackNote }) =>
+    async (dispatch) => {
+        dispatch(uploadTrackRequested);
+        try {
+            const { content } = await trackService.uploadTrack(formData);
+            const track = { ...trackNote, link: content };
+            console.log("track", track);
+            const { content: contentNote } = await trackService.createNoteDB(
+                track
+            );
+            dispatch(trackNoteCreated(contentNote));
+        } catch (error) {
+            dispatch(uploadTrackFailed(error.message));
+        }
     };
-    console.log("track", track);
-    // const formData = new FormData();
-    // formData.append("file", track.file);
-    // formData.append("author", track.author);
-    // formData.append("title", track.title);
-    // formData.append("album", track.album);
-    // formData.append("cover", track.cover);
-    // formData.append("userId", track.userId);
-    // formData.append("_id", track._id);
-    // formData.append("offer", track.offer);
-    // formData.append("bookmarkId", track.bookmarkId);
-    try {
-        const { content } = await trackService.uploadTrack(track);
-        dispatch(trackUploaded(content));
-    } catch (error) {
-        dispatch(uploadTrackFailed(error.message));
-    }
-};
 
 export const setCurrentTrack = (trackId, albumId) => (dispatch) => {
     dispatch(trackSetRequested());
@@ -134,11 +120,14 @@ export const setNewData = (payload) => async (dispatch) => {
     }
 };
 
-export const removeTrack = (trackId) => async (dispatch) => {
+export const removeTrack = (track) => async (dispatch) => {
     dispatch(removeTrackRequested());
     try {
-        const { content } = await trackService.removeTrack(trackId);
-        if (content === null) dispatch(trackRemoved(trackId));
+        const { content } = await trackService.removeTrack(track._id);
+        if (!content) dispatch(trackRemoved(track._id));
+        const { content: contentRemoved } =
+            await trackService.removeUploadTrack(track);
+        console.log("contentRemoved", contentRemoved);
     } catch (error) {
         dispatch(removeTrackFailed(error.message));
     }

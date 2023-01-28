@@ -28,13 +28,22 @@ const Bookmark = ({ track }) => {
     };
 
     return (
-        <i
-            className={"bi bi-heart" + (isBookmark ? "-fill" : "")}
-            style={{ fontSize: "25px", cursor: "pointer", color: "#00dbde" }}
-            onMouseOver={(e) => (e.target.style.color = "#00c4c7")}
-            onMouseOut={(e) => (e.target.style.color = "#00dbde")}
-            onClick={handleClick}
-        ></i>
+        <>
+            {track.userId !== currentUserId && (
+                <i
+                    className={"bi bi-heart" + (isBookmark ? "-fill" : "")}
+                    style={{
+                        fontSize: "25px",
+                        cursor: "pointer",
+                        color: "#00dbde",
+                        marginRight: "7px"
+                    }}
+                    onMouseOver={(e) => (e.target.style.color = "#00c4c7")}
+                    onMouseOut={(e) => (e.target.style.color = "#00dbde")}
+                    onClick={handleClick}
+                ></i>
+            )}
+        </>
     );
 };
 

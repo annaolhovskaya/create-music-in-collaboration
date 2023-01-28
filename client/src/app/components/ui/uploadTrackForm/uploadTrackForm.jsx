@@ -1,54 +1,58 @@
 import React, { useState } from "react";
-// import FileField from "../../common/form/fileField";
 import RadioField from "../../common/form/radioField/radioField";
 import TextField from "../../common/form/textField/textField";
-import stylesCSS from "./uploadMixForm.module.css";
-// import FileField from "../../common/form/fileField";
+import stylesCSS from "./uploadTrackForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getWorkformats } from "../../../store/workformats";
-import PropTypes from "prop-types";
 import { getAlbumIdByName } from "../../../store/albums";
+import { getCurrentUserData } from "../../../store/users";
 import { uploadTrack } from "../../../store/tracks";
-// import axios from "axios";
 
-// const TRACKS_DIR_PATH = 'tracks/';
-// const SERVER_URI = "http://localhost:8080/";
 const REMIX = "remixes";
 const COLLAB = "collaborations";
 
-const UploadMixForm = ({ nickname }) => {
+const UploadTrackForm = () => {
     const dispatch = useDispatch();
+    const currentUser = useSelector(getCurrentUserData());
     const [trackData, setTrackData] = useState({
-        author: nickname,
+        userId: currentUser._id,
+        author: currentUser.nickname,
         title: "",
         file: "",
         album: "collaboration"
     });
 
-    const collabAlbumId = useSelector(getAlbumIdByName(REMIX));
-    const remixAlbumId = useSelector(getAlbumIdByName(COLLAB));
+    const collabAlbumId = useSelector(getAlbumIdByName(COLLAB));
+    const remixAlbumId = useSelector(getAlbumIdByName(REMIX));
 
-    const [isValueSet, setIsValueSet] = useState(false);
+    const [isValueSet, setIsValueSet] = useState({
+        disabled: false,
+        sended: false
+    });
     const formats = useSelector(getWorkformats());
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const trackUpload = {
+        const trackNote = {
             ...trackData,
             album: trackData.album === "remix" ? remixAlbumId : collabAlbumId
         };
-        console.log("uploadTrack", trackUpload);
 
-        dispatch(uploadTrack(trackUpload));
+        delete trackNote.file;
 
-        // const req = await axios.post(SERVER_URI + "api/uploadTrack", formData, {
-        //     headers: {
-        //         "Content-Type": "multipart/form-data"
-        //     }
-        // });
+        const formData = new FormData();
+        formData.append("file", trackData.file);
 
-        // console.log("req ", req);
+        dispatch(uploadTrack({ formData, trackNote }));
+        setIsValueSet({ ...isValueSet, sended: true });
+        setTrackData({
+            userId: currentUser._id,
+            author: currentUser.nickname,
+            title: "",
+            file: null,
+            album: "collaboration"
+        });
     };
 
     const handleChange = (target) => {
@@ -91,7 +95,6 @@ const UploadMixForm = ({ nickname }) => {
                     onChange={handleChange}
                 />
             )}
-            {/* <FileField /> */}
             <div className="input-group">
                 <input
                     type="file"
@@ -101,24 +104,25 @@ const UploadMixForm = ({ nickname }) => {
                     id="inputGroupFile04"
                     aria-describedby="inputGroupFileAddon04"
                     aria-label="Upload"
-                    onClick={() => setIsValueSet(true)}
+                    onClick={() =>
+                        setIsValueSet({ ...isValueSet, disabled: true })
+                    }
                     onChange={handleChangeFile}
                 />
                 <button
                     className="btn btn-primary"
                     type="submit"
                     id="inputGroupFileAddon04"
-                    disabled={!isValueSet}
+                    disabled={!isValueSet.disabled}
                 >
                     Отправить
                 </button>
             </div>
+            {isValueSet.sended && (
+                <h6 className={stylesCSS.success}>Файл успешно загружен!</h6>
+            )}
         </form>
     );
 };
 
-UploadMixForm.propTypes = {
-    nickname: PropTypes.string
-};
-
-export default UploadMixForm;
+export default UploadTrackForm;

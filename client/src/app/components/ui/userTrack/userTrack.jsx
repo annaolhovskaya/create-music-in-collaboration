@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import stylesCSS from "./userTrack.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { removeTrack, setNewData } from "../../../store/tracks";
 import Track from "../track/track";
 import TrackCover from "../trackCover/trackCover";
 import Modal from "../../common/modal/modal";
 import User from "../user/user";
 import BtnBlueSmall from "../btnBlueSmall/btnBlueSmall";
+import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
+import { getCurrentUserData } from "../../../store/users";
 
 const UserTrack = ({ userId, currentUserId, tracks }) => {
     const dispatch = useDispatch();
     const [modalActive, setModalActive] = useState(false);
     const [trackModal, setTrackModal] = useState();
+    const [accepted, setAccepted] = useState(false);
+
+    const currentUser = useSelector(getCurrentUserData());
+    console.log("currentUser", currentUser);
 
     const handleClick = (track) => {
         setModalActive((prevState) => !prevState);
@@ -28,10 +34,12 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
             offer: acceptOffer
         };
         dispatch(setNewData(updateTrackData));
+        // dispatch(updateUser())
+        setAccepted((prevState) => !prevState);
     };
 
-    const handleRemoveTrack = (trackId) => {
-        dispatch(removeTrack(trackId));
+    const handleRemoveTrack = (track) => {
+        dispatch(removeTrack(track));
     };
 
     return (
@@ -43,6 +51,7 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
                         : "Треки пользователя"}
                 </h5>
             )}
+            {}
             <Modal
                 active={modalActive}
                 setActive={setModalActive}
@@ -54,22 +63,26 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
                         <>
                             <div
                                 className={stylesCSS.all__users__items}
-                                key={"track_modal_" + item.userId}
+                                key={nanoid()}
                             >
                                 <User userId={item.userId} />
                                 {!item.accepted &&
                                     !trackModal.offer.some(
                                         (item) => item.accepted === true
                                     ) && (
-                                        <BtnBlueSmall
-                                            content="сотрудничать"
-                                            userId={item.userId}
-                                            trackId={trackModal._id}
-                                            onClick={handleOfferAccept}
-                                        />
+                                        <>
+                                            {!accepted && !item.accepted && (
+                                                <BtnBlueSmall
+                                                    content="сотрудничать"
+                                                    userId={item.userId}
+                                                    trackId={trackModal._id}
+                                                    onClick={handleOfferAccept}
+                                                />
+                                            )}
+                                        </>
                                     )}
                             </div>
-                            {item.accepted && (
+                            {(accepted || item.accepted) && (
                                 <p>
                                     Поздравляем! Теперь вам доступны контактные
                                     данные этого пользователя. Свяжитесь с ним
@@ -97,7 +110,7 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
                         />
                     </div>
                     <div className={stylesCSS.container__btn}>
-                        {userId === currentUserId && (
+                        {userId === currentUserId && track.offer.length > 0 && (
                             <BtnBlueSmall
                                 content="Отклики"
                                 onClick={() => handleClick(track)}
@@ -107,7 +120,7 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
                             <div className={stylesCSS.btn__delete}>
                                 <button
                                     className="btn btn-sm text-primary d-flex align-items-center"
-                                    onClick={() => handleRemoveTrack(track._id)}
+                                    onClick={() => handleRemoveTrack(track)}
                                 >
                                     <i className="bi bi-x-lg"></i>
                                 </button>

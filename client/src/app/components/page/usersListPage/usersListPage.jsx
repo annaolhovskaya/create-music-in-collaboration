@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { paginate } from "../../../utils/paginate";
-import BtnBlueSmall from "../../ui/btnBlueSmall/btnBlueSmall";
+// import BtnBlueSmall from "../../ui/btnBlueSmall/btnBlueSmall";
 import GroupList from "../../common/groupList";
 import Pagination from "../../common/pagination";
 import User from "../../ui/user/user";
@@ -169,7 +169,7 @@ const UsersListPage = () => {
                 {userCrop.map((user) => (
                     <div className={stylesCSS.all__users__items} key={user._id}>
                         <User userId={user._id} />
-                        <BtnBlueSmall content="добавить в друзья" />
+                        {/* <BtnBlueSmall content="добавить в друзья" /> */}
                     </div>
                 ))}
                 <div className="d-flex justify-content-center">

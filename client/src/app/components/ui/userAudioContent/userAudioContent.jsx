@@ -50,12 +50,18 @@ const UserAudioContent = () => {
             ) : null}
             {!userTracks.length &&
                 !bookmarkTracks.length &&
-                !offerTracks.length && (
-                    <div className={stylesCSS.description}>
-                        Здесь будут отобржаться ваши треки, треки с откликами и
+                !offerTracks.length &&
+                (currentUserId === userId ? (
+                    <h6 className={stylesCSS.description}>
+                        Здесь будут отобржаться ваши треки, отклики и
                         избранное...
-                    </div>
-                )}
+                    </h6>
+                ) : (
+                    <h6 className={stylesCSS.description}>
+                        Здесь будут отобржаться треки пользователя, его отклики
+                        и избранное...
+                    </h6>
+                ))}
         </ContentWrapper>
     );
 };

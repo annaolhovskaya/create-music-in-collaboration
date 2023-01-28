@@ -1,6 +1,7 @@
 import httpService from "./http.service";
 
 const trackEndpoint = "track/";
+const uploadTrackEndpoint = "uploadTrack/";
 
 const trackService = {
     fetchAll: async () => {
@@ -19,18 +20,23 @@ const trackService = {
         return data;
     },
     uploadTrack: async (payload) => {
-        console.log("payload from service", payload);
-        const { data } = await httpService.post(
-            trackEndpoint + payload._id,
-            payload,
-            {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
+        const { data } = await httpService.post(uploadTrackEndpoint, payload, {
+            headers: {
+                "Content-Type": "multipart/form-data"
             }
+        });
+        return data;
+    },
+    removeUploadTrack: async (payload) => {
+        const { data } = await httpService.delete(
+            uploadTrackEndpoint + payload.link,
+            payload
         );
-        console.log(data);
-        // return data;
+        return data;
+    },
+    createNoteDB: async (payload) => {
+        const { data } = await httpService.post(trackEndpoint, payload);
+        return data;
     }
 };
 

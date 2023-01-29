@@ -15,7 +15,6 @@
 
 .main__content_wraper {
     display: flex;
-    /* flex-wrap: wrap; */
     margin: 0 -15px;
     height: 100%;
 }

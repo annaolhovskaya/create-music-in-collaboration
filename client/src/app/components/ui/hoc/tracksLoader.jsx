@@ -11,7 +11,7 @@ const TracksLoader = ({ children }) => {
         if (!dataStatus) dispatch(loadTracksList());
     }, []);
 
-    if (!dataStatus) return "Loading...";
+    if (!dataStatus) return "...";
     return children;
 };
 

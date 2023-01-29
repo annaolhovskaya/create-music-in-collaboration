@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import TextField from "../common/form/textField/textField";
-// import { validator } from "../../utils/validator";
 import SelectField from "../common/form/selectField/selectField";
 import RadioField from "../common/form/radioField/radioField";
 import MultySelectField from "../common/form/multySelectField/multySelectField";
@@ -67,14 +66,13 @@ const RegisterForm = () => {
                 [true],
                 "Сервис доступен только после подтверждения лицензионного соглашения"
             ),
-        instagram: yup.string().url("Введите корректный URL(http://....)"),
-        telegram: yup.string().url("Введите корректный URL(http://....)"),
-
-        soundCloud: yup.string().url("Введите корректный URL(http://....)"),
         contactEmail: yup
             .string()
             .required("email обязателен для заполнения")
             .email("email введен не корректо"),
+        instagram: yup.string().url("Введите корректный URL(http://....)"),
+        telegram: yup.string().url("Введите корректный URL(http://....)"),
+        soundCloud: yup.string().url("Введите корректный URL(http://....)"),
         workFormat: yup
             .array()
             .test(
@@ -238,30 +236,34 @@ const RegisterForm = () => {
                 onChange={handleChange}
                 error={errors.workFormat}
             />
-            <TextField
-                label="Контактный Email"
-                name="contactEmail"
-                value={data.contactEmail}
-                error={errors.contactEmail}
-                onChange={handleChange}
-            />
+
             <TextField
                 label="Ссылка на аккаунт SoundCloud"
                 name="soundCloud"
                 value={data.soundCloud}
                 onChange={handleChange}
+                error={errors.soundCloud}
             />
             <TextField
                 label="Ссылка на аккаунт Telegram"
                 name="telegram"
                 value={data.telegram}
                 onChange={handleChange}
+                error={errors.telegram}
             />
             <TextField
                 label="Ссылка на аккаунт Instagram"
                 name="instagram"
                 value={data.instagram}
                 onChange={handleChange}
+                error={errors.instagram}
+            />
+            <TextField
+                label="Контактный Email"
+                name="contactEmail"
+                value={data.contactEmail}
+                onChange={handleChange}
+                error={errors.contactEmail}
             />
             <RadioField
                 label="Ваш пол:"

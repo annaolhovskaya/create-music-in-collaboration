@@ -24,7 +24,6 @@ const AppLoader = ({ children }) => {
         dispatch(loadDawsList());
         dispatch(loadWorkformatsList());
         dispatch(loadExperiencesList());
-        // dispatch(loadTracksList());
         dispatch(loadAlbumsList());
 
         if (isLoggedIn) {

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Modal from "../../common/modal/modal";
 import UploadTrackForm from "../../ui/uploadTrackForm/uploadTrackForm";
 import UserCard from "../../ui/userCard/userCard";
-import Comments from "../../ui/comments/comments";
+import Comments from "../../ui/comments";
 import { useSelector } from "react-redux";
 import { getUserById } from "../../../store/users";
 import Loader from "../../common/loader/loader";

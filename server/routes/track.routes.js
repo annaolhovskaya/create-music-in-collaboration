@@ -1,4 +1,5 @@
 const express = require('express');
+const { check, validationResult } = require('express-validator');
 const auth = require('../middleware/auth.middleware');
 const Track = require('../models/Track');
 const { generateTrackData } = require('../utils/helpers');
@@ -15,19 +16,33 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-router.post('/', auth, async (req, res) => {
-  try {
-    const newTrack = await Track.create({
-      ...generateTrackData(),
-      ...req.body,
-    });
-    res.status(201).send(newTrack);
-  } catch (error) {
-    res.status(500).json({
-      message: 'На сервере произошла ошибка... Попробуйте позже...',
-    });
-  }
-});
+router.post('/', auth, [
+  check('title', 'Обязательно для заполнения').exists(),
+  async (req, res) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          error: {
+            message: 'INVALID_DATA',
+            code: 400,
+            errors: errors.array(),
+          },
+        });
+      }
+
+      const newTrack = await Track.create({
+        ...generateTrackData(),
+        ...req.body,
+      });
+      res.status(201).send(newTrack);
+    } catch (error) {
+      res.status(500).json({
+        message: 'На сервере произошла ошибка... Попробуйте позже...',
+      });
+    }
+  },
+]);
 
 router.patch('/:trackId', auth, async (req, res) => {
   try {

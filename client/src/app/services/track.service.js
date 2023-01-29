@@ -27,13 +27,6 @@ const trackService = {
         });
         return data;
     },
-    removeUploadTrack: async (payload) => {
-        const { data } = await httpService.delete(
-            uploadTrackEndpoint + payload.link,
-            payload
-        );
-        return data;
-    },
     createNoteDB: async (payload) => {
         const { data } = await httpService.post(trackEndpoint, payload);
         return data;

@@ -1,7 +1,5 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
-// import { nanoid } from "nanoid";
 import trackService from "../services/track.service";
-// import _ from "lodash";
 
 const tracksSlice = createSlice({
     name: "tracks",
@@ -91,7 +89,6 @@ export const uploadTrack =
         try {
             const { content } = await trackService.uploadTrack(formData);
             const track = { ...trackNote, link: content };
-            console.log("track", track);
             const { content: contentNote } = await trackService.createNoteDB(
                 track
             );
@@ -125,15 +122,11 @@ export const removeTrack = (track) => async (dispatch) => {
     try {
         const { content } = await trackService.removeTrack(track._id);
         if (!content) dispatch(trackRemoved(track._id));
-        const { content: contentRemoved } =
-            await trackService.removeUploadTrack(track);
-        console.log("contentRemoved", contentRemoved);
     } catch (error) {
         dispatch(removeTrackFailed(error.message));
     }
 };
 
-export const getTracks = () => (state) => state.tracks.entities;
 export const getTracksLoadingStatus = () => (state) => state.tracks.isLoading;
 export const getDataStatus = () => (state) => state.tracks.dataLoaded;
 
@@ -183,8 +176,6 @@ export const getCurrentTrack = () => (state) => {
         );
     }
 };
-
-export const getTrackByZeroIndex = () => (state) => state.tracks?.entities[0];
 
 export const getNextTrackId = (trackId) => (state) => {
     if (state.tracks.entities && state.tracks.currentAlbum !== null) {

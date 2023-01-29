@@ -35,27 +35,44 @@ const UserCard = ({ user, setActive }) => {
     const styles = useSelector(getStylesByIds(user.styles));
 
     const tracksUser = useSelector(getTracksByUserId(user._id));
+    const tracksCurrentUser = useSelector(getTracksByUserId(currentUserId));
     const isLoading = useSelector(getTracksLoadingStatus());
 
     function getOfferAccepted(tracksUser) {
+        const arrayOffer = [];
         if (user._id !== currentUserId) {
-            const arrayOffer = [];
-            if (!isLoading) {
+            if (
+                !isLoading &&
+                tracksUser.length > 0 &&
+                tracksCurrentUser.length > 0
+            ) {
                 if (tracksUser.length > 0) {
                     for (let i = 0; i < tracksUser.length; i++) {
-                        tracksUser.forEach((item) =>
-                            item.offer.length > 0
-                                ? arrayOffer.push(item.offer[i])
-                                : null
-                        );
+                        tracksUser.forEach((item) => {
+                            if (item.offer.length > 0 && item.offer[i]) {
+                                arrayOffer.push(item.offer[i]);
+                            }
+                        });
+                    }
+                }
+                if (tracksCurrentUser.length > 0) {
+                    for (let j = 0; j < tracksCurrentUser.length; j++) {
+                        tracksCurrentUser.forEach((item) => {
+                            if (item.offer.length > 0 && item.offer[j]) {
+                                arrayOffer.push(item.offer[j]);
+                            }
+                        });
                     }
                 }
             }
-
             const isOfferAccepted =
-                arrayOffer.length > 0 && user.offer
+                arrayOffer.length > 0
                     ? arrayOffer.some((item) => {
-                          return item.userId === currentUserId && item.accepted;
+                          return (
+                              (item.userId === currentUserId ||
+                                  item.userId === user._id) &&
+                              item.accepted
+                          );
                       })
                     : false;
 
@@ -64,7 +81,10 @@ const UserCard = ({ user, setActive }) => {
         return false;
     }
 
-    const isOfferAccepted = getOfferAccepted(tracksUser);
+    const isOfferAccepted =
+        tracksUser.length > 0 && tracksCurrentUser.length > 0
+            ? getOfferAccepted(tracksUser, tracksCurrentUser)
+            : false;
 
     return (
         <ContentWrapper>

@@ -1,7 +1,7 @@
 import React from "react";
 import CollabList from "../components/ui/collabList/collabList";
-import RemixList from "../components/remixList";
-import RandomUsersList from "../components/randomUsersList";
+import RandomUsersList from "../components/ui/randomUsersList";
+import RemixList from "../components/ui/remixList";
 
 const Main = () => {
     return (

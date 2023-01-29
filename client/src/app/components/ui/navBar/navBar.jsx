@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getIsLoggedIn } from "../../../store/users";
-import NavProfile from "../navProfile/navProfile";
+import NavProfile from "../navProfile";
 import stylesCSS from "./navBar.module.css";
 
 const NavBar = () => {

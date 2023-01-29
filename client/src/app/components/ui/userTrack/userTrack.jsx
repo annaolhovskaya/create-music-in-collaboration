@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import stylesCSS from "./userTrack.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { removeTrack, setNewData } from "../../../store/tracks";
 import Track from "../track/track";
 import TrackCover from "../trackCover/trackCover";
 import Modal from "../../common/modal/modal";
 import User from "../user/user";
 import BtnBlueSmall from "../btnBlueSmall/btnBlueSmall";
-import { nanoid } from "nanoid";
 import PropTypes from "prop-types";
-import { getCurrentUserData } from "../../../store/users";
 
 const UserTrack = ({ userId, currentUserId, tracks }) => {
     const dispatch = useDispatch();
     const [modalActive, setModalActive] = useState(false);
     const [trackModal, setTrackModal] = useState();
     const [accepted, setAccepted] = useState(false);
-
-    const currentUser = useSelector(getCurrentUserData());
-    console.log("currentUser", currentUser);
 
     const handleClick = (track) => {
         setModalActive((prevState) => !prevState);
@@ -34,7 +29,6 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
             offer: acceptOffer
         };
         dispatch(setNewData(updateTrackData));
-        // dispatch(updateUser())
         setAccepted((prevState) => !prevState);
     };
 
@@ -63,7 +57,7 @@ const UserTrack = ({ userId, currentUserId, tracks }) => {
                         <>
                             <div
                                 className={stylesCSS.all__users__items}
-                                key={nanoid()}
+                                key={item._id}
                             >
                                 <User userId={item.userId} />
                                 {!item.accepted &&

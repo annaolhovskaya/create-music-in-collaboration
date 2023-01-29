@@ -9,9 +9,10 @@ import {
 } from "../../../store/workformats";
 
 const WorkFormatList = ({ workFormat }) => {
-    const isLoading = useSelector(getWorkformatsLoadingStatus());
-    if (isLoading) return "Loading...";
     const formatsList = useSelector(getWorkformatsByIds(workFormat));
+    const isLoading = useSelector(getWorkformatsLoadingStatus());
+
+    if (isLoading) return "Loading...";
 
     return (
         <div className={stylesCSS.label__item}>

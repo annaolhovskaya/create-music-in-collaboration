@@ -5,9 +5,7 @@
     border: none;
     border-radius: 3px;
     padding: 6px 12px;
-
     background-color: rgba(249, 135, 237, 0.78);
-
     transition: color 0.1s linear;
 }
 

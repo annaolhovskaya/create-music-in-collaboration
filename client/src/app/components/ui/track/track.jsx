@@ -1,21 +1,15 @@
 import React from "react";
-import Bookmark from "../../ui/audioPlayer/buttonAudioPlayer/bookmark";
+import Bookmark from "../bookmark";
 import stylesCSS from "./track.module.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Offer from "../offer/offer";
+import Offer from "../offer";
 import { getUsersLoadingStatus } from "../../../store/users";
 import { useSelector } from "react-redux";
 
 const Track = ({ track, remark }) => {
     const isLoading = useSelector(getUsersLoadingStatus());
     const { title, author, userId } = track;
-
-    // const [isOpen, setOpen] = useState(false);
-
-    // const handleClick = () => {
-    //     setOpen((prevState) => !prevState);
-    // };
 
     if (!isLoading) {
         return (

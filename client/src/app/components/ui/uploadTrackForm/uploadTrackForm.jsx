@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RadioField from "../../common/form/radioField/radioField";
 import TextField from "../../common/form/textField/textField";
 import stylesCSS from "./uploadTrackForm.module.css";
+import * as yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { getWorkformats } from "../../../store/workformats";
 import { getAlbumIdByName } from "../../../store/albums";
@@ -21,18 +22,39 @@ const UploadTrackForm = () => {
         file: "",
         album: "collaboration"
     });
-
-    const collabAlbumId = useSelector(getAlbumIdByName(COLLAB));
-    const remixAlbumId = useSelector(getAlbumIdByName(REMIX));
-
+    const [errors, setErrors] = useState({});
     const [isValueSet, setIsValueSet] = useState({
         disabled: false,
         sended: false
     });
+
+    useEffect(() => {
+        validate();
+    }, [trackData]);
+
+    const collabAlbumId = useSelector(getAlbumIdByName(COLLAB));
+    const remixAlbumId = useSelector(getAlbumIdByName(REMIX));
     const formats = useSelector(getWorkformats());
+
+    const validateSchema = yup.object().shape({
+        title: yup.string().required("Название обязательно для заполнения")
+    });
+
+    const validate = () => {
+        validateSchema
+            .validate(trackData)
+            .then(() => setErrors({}))
+            .catch((err) => setErrors({ [err.path]: err.message }));
+
+        return Object.keys(errors).length === 0;
+    };
+
+    const isValid = Object.keys(errors).length === 0;
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const isValid = validate();
+        if (!isValid) return;
 
         const trackNote = {
             ...trackData,
@@ -45,14 +67,7 @@ const UploadTrackForm = () => {
         formData.append("file", trackData.file);
 
         dispatch(uploadTrack({ formData, trackNote }));
-        setIsValueSet({ ...isValueSet, sended: true });
-        setTrackData({
-            userId: currentUser._id,
-            author: currentUser.nickname,
-            title: "",
-            file: null,
-            album: "collaboration"
-        });
+        setIsValueSet((prevState) => !prevState);
     };
 
     const handleChange = (target) => {
@@ -82,6 +97,7 @@ const UploadTrackForm = () => {
                 label="Название"
                 name="title"
                 value={trackData.title}
+                error={errors.title}
                 onChange={handleChange}
             />
             {formats && (
@@ -104,16 +120,14 @@ const UploadTrackForm = () => {
                     id="inputGroupFile04"
                     aria-describedby="inputGroupFileAddon04"
                     aria-label="Upload"
-                    onClick={() =>
-                        setIsValueSet({ ...isValueSet, disabled: true })
-                    }
+                    onClick={() => setIsValueSet((prevState) => !prevState)}
                     onChange={handleChangeFile}
                 />
                 <button
                     className="btn btn-primary"
                     type="submit"
                     id="inputGroupFileAddon04"
-                    disabled={!isValueSet.disabled}
+                    disabled={!isValid}
                 >
                     Отправить
                 </button>

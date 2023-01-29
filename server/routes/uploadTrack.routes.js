@@ -32,10 +32,4 @@ router.post('/', auth, upload.single('file'), async (req, res) => {
   }
 });
 
-router.delete('/:trackLink', async (req, res) => {
-  const { trackLink } = req.body;
-  console.log('req removedTrack', req.body);
-  console.log('trackLink', trackLink);
-});
-
 module.exports = router;

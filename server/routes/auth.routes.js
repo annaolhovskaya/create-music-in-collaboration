@@ -19,14 +19,18 @@ router.post('/signUp', [
     .withMessage(
       'Пароль должен содержать хотя бы один из специальных символов !@#$%^&*'
     ),
-  // check('name', 'Обязательно для заполнения').exists(),
-  // check('nikcname', 'Обязательно для заполнения').exists(),
-  // check('city', 'Обязательно для заполнения').exists(),
-  // check('country', 'Обязательно для заполнения').exists(),
-  // check('experience', 'Обязательно для заполнения').exists(),
-  // check('styles', 'Обязательно для заполнения').exists(),
-  // check('daw', 'Обязательно для заполнения').exists(),
-  // check('workFormat', 'Обязательно для заполнения').exists(),
+  check('name', 'Обязательно для заполнения').exists(),
+  check('nickname', 'Обязательно для заполнения').exists(),
+  check('city', 'Обязательно для заполнения').exists(),
+  check('country', 'Обязательно для заполнения').exists(),
+  check('experience', 'Обязательно для заполнения').exists(),
+  check('styles', 'Обязательно для заполнения').exists(),
+  check('daw', 'Обязательно для заполнения').exists(),
+  check('workFormat', 'Обязательно для заполнения').exists(),
+  check('soundCloud', 'URL некорректный').isURL(),
+  check('soundCloud', 'URL некорректный').isURL(),
+  check('instagram', 'URL некорректный').isURL(),
+  check('contactEmail', 'Email некорректный').isEmail(),
   async (req, res) => {
     try {
       const errors = validationResult(req);

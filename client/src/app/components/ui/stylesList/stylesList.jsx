@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 import { getStylesByIds, getStylesLoadingStatus } from "../../../store/styles";
 
 const StylesList = ({ styles }) => {
+    const stylesList = useSelector(getStylesByIds(styles));
     const isLoading = useSelector(getStylesLoadingStatus());
     if (isLoading) return "Loading...";
-    const stylesList = useSelector(getStylesByIds(styles));
 
     return (
         <div className={stylesCSS.user__music__styles}>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { paginate } from "../../../utils/paginate";
-// import BtnBlueSmall from "../../ui/btnBlueSmall/btnBlueSmall";
 import GroupList from "../../common/groupList";
 import Pagination from "../../common/pagination";
 import User from "../../ui/user/user";
@@ -107,9 +106,6 @@ const UsersListPage = () => {
 
     const filteredUsers = filterUsers(users);
 
-    // const filteredUsers = getFilteredUsers().filter(
-    //     (user) => user._id !== currentUserId
-    // );
     const count = filteredUsers.length;
     const userCrop = paginate(filteredUsers, currentPage, pageSize);
 
@@ -169,7 +165,6 @@ const UsersListPage = () => {
                 {userCrop.map((user) => (
                     <div className={stylesCSS.all__users__items} key={user._id}>
                         <User userId={user._id} />
-                        {/* <BtnBlueSmall content="добавить в друзья" /> */}
                     </div>
                 ))}
                 <div className="d-flex justify-content-center">

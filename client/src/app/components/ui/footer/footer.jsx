@@ -9,15 +9,13 @@ import {
     getCurrentTrackId,
     getNextTrackId,
     getPrevTrackId,
-    // getTrackByZeroIndex,
-    // getTracks,
     getTracksLoadingStatus,
     setCurrentTrack
 } from "../../../store/tracks";
-import Bookmark from "../audioPlayer/buttonAudioPlayer/bookmark";
+import Bookmark from "../bookmark";
 import stylesCSS from "./footer.module.css";
 import PropTypes from "prop-types";
-import Offer from "../offer/offer";
+import Offer from "../offer";
 
 const SERVER_URI = "http://localhost:8080/";
 const TRACKS_DIR_PATH = "tracks/";
@@ -70,7 +68,7 @@ const Footer = () => {
                     </div>
 
                     <AudioPlayer
-                        volume="0.4"
+                        volume="0.5"
                         src={SERVER_URI + TRACKS_DIR_PATH + currentTrack.link}
                         showSkipControls={true}
                         showJumpControls={false}

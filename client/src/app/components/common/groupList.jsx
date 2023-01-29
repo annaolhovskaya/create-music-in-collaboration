@@ -1,5 +1,4 @@
 import React from "react";
-// import stylesCSS from "./groupList.module.css";
 import PropTypes from "prop-types";
 
 const GroupList = ({ title, items, selectedItem, onItemSelect }) => {
